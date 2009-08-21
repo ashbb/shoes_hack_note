@@ -20,7 +20,7 @@ In the case of 0.r1243 on Windows without video, this is The Minimum Shoes.
 	# shoes.rb
 	class Shoes
 	  def self.run path
-	    [nil]
+	      [nil]
 	  end
 	
 	  def self.args!
@@ -29,4 +29,3 @@ In the case of 0.r1243 on Windows without video, this is The Minimum Shoes.
 	    end
 	  end
 	end
-
