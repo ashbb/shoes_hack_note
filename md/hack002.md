@@ -1,6 +1,5 @@
-# hack 002
-
-## String#gsub with block
+hack 002: String#gsub with block
+================================
 
 Browsing lib/shoes.rb and Ruby files under lib/shoes is a lot of fun!
 
@@ -22,5 +21,6 @@ I didn't know that String#gsub has a block... xx-P
 	end
 
 The above snippet picks up the classe, module and method that are defined in the lib/shoes.rb. No.1 and No.2 display the same outputs. Cool!
+
 
 
