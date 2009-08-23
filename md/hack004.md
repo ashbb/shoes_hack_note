@@ -17,16 +17,17 @@ In the case of 0.r1229 on Windows without video, this is The Minimum Shoes.
 - shoes.exe
 - shoes.rb
 
+<pre>
+ # shoes.rb
+ class Shoes
+   def self.run path
+     [nil]
+   end
 
-	# shoes.rb
-	class Shoes
-	  def self.run path
-	    [nil]
-	  end
-	
-	  def self.args!
-	    Shoes.app do
-	      para 'Hello world!'
-	    end
-	  end
-	end
+   def self.args!
+    Shoes.app do
+      para 'Hello world!'
+    end
+  end
+ end
+</pre>
