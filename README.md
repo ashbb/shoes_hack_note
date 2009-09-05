@@ -13,5 +13,7 @@ Take Note
 - 005 [Define all methods for style](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack005.md)
 - 006 [Building Shoes for Windows](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack006.md)
 
+<br>
+
 ---------------
 2009.9.5 ashbb
