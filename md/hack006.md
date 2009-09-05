@@ -141,8 +141,131 @@ Command failed with status (2): [cl /c /nologo /TP /Foshoes/app.obj /ML /DW...]
 (See full trace by running task with --trace)
 </pre>
 
+Needed to add one more path:
+
+	/Ideps\\ruby\\include\\ruby-1.9.1\\i386-mswin32_90
+
+
+**Step 004**
+
+<pre>
+C:\build\shoes>rake
+(in C:/build/shoes)
+cp platform/msw/shoes.ico shoes/appwin32.ico
+mkdir -p dist/pkg
+app.c
+deps\ruby\include\ruby-1.9.1\i386-mswin32_90\ruby\config.h(2) : fatal error C118
+9: #error :  MSC version unmatch: _MSC_VER: 1500 is expected.
+rake aborted!
+Command failed with status (2): [cl /c /nologo /TP /Foshoes/app.obj /ML /DW...]
+
+(See full trace by running task with --trace)
+</pre>
+
+I'm using Visual C++ 9.0 (Visual Studio 2008). So why not 1500?...   
+I tried the following:
+<pre>
+C:\build\shoes>set _MSC_VER=1500
+
+C:\build\shoes>irb
+irb(main):001:0> ENV['_MSC_VER']
+=> "1500"
+</pre>
+
+But `rake` showed the same error.... So, I did the following in the mean time.
+
+**config.h** : comment out first 3 lines.
+
+<pre>
+//#if _MSC_VER != 1500
+//#error MSC version unmatch: _MSC_VER: 1500 is expected.
+//#endif
+</pre>
+
+
+**Step 005**
+
+<pre>
+C:\build\shoes>rake
+(in C:/build/shoes)
+cp platform/msw/shoes.ico shoes/appwin32.ico
+mkdir -p dist/pkg
+app.c
+shoes\config.h(152) : fatal error C1083: Cannot open include file: 'win32/win32.
+h': No such file or directory
+rake aborted!
+Command failed with status (2): [cl /c /nologo /TP /Foshoes/app.obj /ML /DW...]
+
+(See full trace by running task with --trace)
+</pre>
+
+**shoes/config.h**: replaced from `win32/win32` to `ruby/win32`
+
+<pre>
+//#include "win32/win32.h"
+#include "ruby/win32.h"
+</pre>
+
+
+**Step 006**
+
+<pre>
+C:\build\shoes>rake
+(in C:/build/shoes)
+cp platform/msw/shoes.ico shoes/appwin32.ico
+mkdir -p dist/pkg
+app.c
+canvas.c
+effects.c
+image.c
+internal.c
+ruby.c
+world.c
+shoes\world.c(25) : warning C4273: 'shoes_world' : inconsistent dll linkage
+shoes\world.c(29) : warning C4273: 'shoes_world_alloc' : inconsistent dll linkage
+shoes\world.c(69) : warning C4273: 'shoes_world_free' : inconsistent dll linkage
+
+shoes\world.c(102) : warning C4273: 'shoes_init' : inconsistent dll linkage
+shoes\world.c(143) : warning C4273: 'shoes_load' : inconsistent dll linkage
+shoes\world.c(163) : warning C4273: 'shoes_set_argv' : inconsistent dll linkage
+shoes\world.c(181) : warning C4273: 'shoes_start' : inconsistent dll linkage
+shoes\world.c(231) : warning C4273: 'shoes_final' : inconsistent dll linkage windows.c
+shoes\native\windows.c(68) : warning C4273: 'shoes_win32_cmdvector' : inconsiste nt dll linkage
+c:\build\shoes\shoes\native\windows.c(978) : warning C4700: local variable 'msgs' used without having been initialized
+winhttp.c
+windownload.c
+shoes\http\windownload.c(93) : error C2039: 'len' : is not a member of 'RArray'
+        c:\build\shoes\deps\ruby\include\ruby-1.9.1\ruby\ruby.h(607) : see decla ration of 'RArray'
+rake aborted!
+Command failed with status (2): [cl /c /nologo /TP /Foshoes/http/windownloa...]
+
+(See full trace by running task with --trace)
+</pre>
+
+Look at ruby.h(607):
+
+	struct RArray {
+	    struct RBasic basic;
+	    union {
+		struct {
+		    long len;
+		    union {
+			long capa;
+			VALUE shared;
+		    } aux;
+		    VALUE *ptr;
+		} heap;
+		VALUE ary[RARRAY_EMBED_LEN_MAX];
+ 	   } as;
+	};
+
+
+I see. Then I edited `shoes/http/windownload.c` at line number 93:
+
+	//for (i = 0; i < RARRAY(keys)->len; i++ )
+	for (i = 0; i < RARRAY(keys)->as.heap.len; i++ )
 
 
 
-
+**Step 007**
 
