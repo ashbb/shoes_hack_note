@@ -11,6 +11,7 @@ Take Note
 - 003 [Pulse Effect](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack003.md)
 - 004 [Minimum Shoes on Windows](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack004.md)
 - 005 [Define all methods for style](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack005.md)
+- 006 [Building Shoes for Windows](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack006.md)
 
 ---------------
-2009.8.23 ashbb
+2009.9.5 ashbb
