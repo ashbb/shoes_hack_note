@@ -51,3 +51,98 @@ Shoes directory
 trial and error
 ---------------
 
+**Open Windows XP Free Build Environment**
+
+- Look at [this](http://github.com/ashbb/shoes_tutorial_html/blob/master/mdowns/00608_Building_Shoes_with_Windows_DDK.mdown).
+
+**Do rake until building shoes.exe under dist directory by trial and error**
+
+**Step 001**
+
+<pre>
+C:\build\shoes>dir
+
+2009/09/05  10:09    <DIR>          .
+2009/09/05  10:09    <DIR>          ..
+2009/09/05  09:59    <DIR>          .git
+2009/09/05  09:59                65 .gitignore
+2009/09/05  09:59               146 app.yaml
+2009/09/05  09:59    <DIR>          bin
+2009/09/05  09:59    <DIR>          bugs
+2009/09/05  09:59               601 CHANGELOG
+2009/09/05  09:59             1,431 COPYING
+2009/09/05  10:10    <DIR>          deps
+2009/09/05  09:59    <DIR>          fonts
+2009/09/05  09:59    <DIR>          lib
+2009/09/05  09:59    <DIR>          platform
+2009/09/05  09:59            20,396 Rakefile
+2009/09/05  09:59             4,483 README
+2009/09/05  09:59    <DIR>          req
+2009/09/05  09:59    <DIR>          samples
+2009/09/05  09:59    <DIR>          shoes
+2009/09/05  09:59    <DIR>          static
+2009/09/05  09:59               499 use-deps
+
+
+C:\build\shoes>rake
+(in C:/build/shoes)
+rake aborted!
+No such file or directory - git rev-list HEAD
+c:/ruby/lib/ruby/1.9.1/rake.rb:2342:in `raw_load_rakefile'
+(See full trace by running task with --trace)
+
+</pre>
+
+Look at this [Note 1 and 2](http://github.com/ashbb/shoes_tutorial_html/blob/master/mdowns/00608_Building_Shoes_with_Windows_DDK.mdown)
+
+This is the problem caused by my environment. You may not get this trouble. I edited `Rakefile` a bit like this:
+
+	#REVISION = (`#{GIT} rev-list HEAD`.split.length + 1).to_s
+	REVISION = '1251'
+
+
+**Step 002**
+
+<pre>
+C:\build\shoes>rake
+(in C:/build/shoes)
+cp platform/msw/shoes.ico shoes/appwin32.ico
+mkdir -p dist/pkg
+app.c
+shoes\app.h(14) : fatal error C1083: Cannot open include file: 'ruby.h': No such
+ file or directory
+rake aborted!
+Command failed with status (2): [cl /c /nologo /TP /Foshoes/app.obj /ML /DW...]
+
+(See full trace by running task with --trace)
+</pre>
+
+Simply added the path to `MSVC_CFLAGS` like this:
+
+	/Ideps\\ruby\\lib\\ruby\\#{ruby_v}\\i386-mswin32
+	/Ideps\\ruby\\include\\ruby-1.9.1                  #=> added this line
+	/Ideps\\curl\\include
+
+
+**Step 003**
+
+<pre>
+
+C:\build\shoes>rake
+(in C:/build/shoes)
+cp platform/msw/shoes.ico shoes/appwin32.ico
+mkdir -p dist/pkg
+app.c
+c:\build\shoes\deps\ruby\include\ruby-1.9.1\ruby\ruby.h(25) : fatal error C1083:
+ Cannot open include file: 'ruby/config.h': No such file or directory
+rake aborted!
+Command failed with status (2): [cl /c /nologo /TP /Foshoes/app.obj /ML /DW...]
+
+(See full trace by running task with --trace)
+</pre>
+
+
+
+
+
+
