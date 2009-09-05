@@ -62,25 +62,25 @@ trial and error
 <pre>
 C:\build\shoes>dir
 
-2009/09/05  10:09    <DIR>          .
-2009/09/05  10:09    <DIR>          ..
-2009/09/05  09:59    <DIR>          .git
+2009/09/05  10:09    &lt;DIR>          .
+2009/09/05  10:09    &lt;DIR>          ..
+2009/09/05  09:59    &lt;DIR>          .git
 2009/09/05  09:59                65 .gitignore
 2009/09/05  09:59               146 app.yaml
-2009/09/05  09:59    <DIR>          bin
-2009/09/05  09:59    <DIR>          bugs
+2009/09/05  09:59    &lt;DIR>          bin
+2009/09/05  09:59    &lt;DIR>          bugs
 2009/09/05  09:59               601 CHANGELOG
 2009/09/05  09:59             1,431 COPYING
-2009/09/05  10:10    <DIR>          deps
-2009/09/05  09:59    <DIR>          fonts
-2009/09/05  09:59    <DIR>          lib
-2009/09/05  09:59    <DIR>          platform
+2009/09/05  10:10    &lt;DIR>          deps
+2009/09/05  09:59    &lt;DIR>          fonts
+2009/09/05  09:59    &lt;DIR>          lib
+2009/09/05  09:59    &lt;DIR>          platform
 2009/09/05  09:59            20,396 Rakefile
 2009/09/05  09:59             4,483 README
-2009/09/05  09:59    <DIR>          req
-2009/09/05  09:59    <DIR>          samples
-2009/09/05  09:59    <DIR>          shoes
-2009/09/05  09:59    <DIR>          static
+2009/09/05  09:59    &lt;DIR>          req
+2009/09/05  09:59    &lt;DIR>          samples
+2009/09/05  09:59    &lt;DIR>          shoes
+2009/09/05  09:59    &lt;DIR>          static
 2009/09/05  09:59               499 use-deps
 
 
@@ -369,6 +369,6 @@ C:\build\shoes>
 
 Done! Here is the log file: [rake_package_log.txt](http://github.com/ashbb/shoes_hack_note/tree/master/log/rake_package_log_090905.txt)
 
-*Note: Looks like to build dist and pkg perfectly, but shoes-0.r1251.exe has never open Shoes app window....* **Need more hacking deeply!** xx-P
+*Note: Looks like it finished to build dist and pkg perfectly, but shoes-0.r1251.exe has never open Shoes app window....* **Need more hacking deeply!** :-P
 
 
