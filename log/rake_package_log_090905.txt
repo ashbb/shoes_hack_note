@@ -1,0 +1,1462 @@
+app.c
+canvas.c
+effects.c
+image.c
+internal.c
+ruby.c
+world.c
+shoes\world.c(25) : warning C4273: 'shoes_world' : inconsistent dll linkage
+shoes\world.c(29) : warning C4273: 'shoes_world_alloc' : inconsistent dll linkage
+shoes\world.c(69) : warning C4273: 'shoes_world_free' : inconsistent dll linkage
+shoes\world.c(102) : warning C4273: 'shoes_init' : inconsistent dll linkage
+shoes\world.c(143) : warning C4273: 'shoes_load' : inconsistent dll linkage
+shoes\world.c(163) : warning C4273: 'shoes_set_argv' : inconsistent dll linkage
+shoes\world.c(181) : warning C4273: 'shoes_start' : inconsistent dll linkage
+shoes\world.c(231) : warning C4273: 'shoes_final' : inconsistent dll linkage
+windows.c
+shoes\native\windows.c(68) : warning C4273: 'shoes_win32_cmdvector' : inconsistent dll linkage
+c:\build\shoes\shoes\native\windows.c(978) : warning C4700: local variable 'msgs' used without having been initialized
+winhttp.c
+windownload.c
+   Creating library dist/libshoes.lib and object dist/libshoes.exp
+app.obj : warning LNK4217: locally defined symbol _shoes_world imported in function "unsigned long __cdecl shoes_app_new(unsigned long)" (?shoes_app_new@@YAKK@Z)
+image.obj : warning LNK4049: locally defined symbol _shoes_world imported
+ruby.obj : warning LNK4217: locally defined symbol _shoes_world imported in function "void __cdecl shoes_place_exact(struct shoes_place *,unsigned long,int,int)" (?shoes_place_exact@@YAXPAUshoes_place@@KHH@Z)
+windows.obj : warning LNK4049: locally defined symbol _shoes_world imported
+LINK : warning LNK4078: multiple '.rdata' sections found with different attributes (C0000040)
+main.c
+LINK : warning LNK4078: multiple '.rdata' sections found with different attributes (C0000040)
+MakeNSIS v2.45 - Copyright 1995-2009 Contributors
+See the file COPYING for license details.
+Credits can be found in the Users Manual.
+
+Processing config: 
+Processing plugin dlls: "C:\Program Files\NSIS\Plugins\*.dll"
+ - AdvSplash::show
+ - Banner::destroy
+ - Banner::getWindow
+ - Banner::show
+ - BgImage::AddImage
+ - BgImage::AddText
+ - BgImage::Clear
+ - BgImage::Destroy
+ - BgImage::Redraw
+ - BgImage::SetBg
+ - BgImage::SetReturn
+ - BgImage::Sound
+ - Dialer::AttemptConnect
+ - Dialer::AutodialHangup
+ - Dialer::AutodialOnline
+ - Dialer::AutodialUnattended
+ - Dialer::GetConnectedState
+ - InstallOptions::dialog
+ - InstallOptions::initDialog
+ - InstallOptions::show
+ - LangDLL::LangDialog
+ - Math::Script
+ - NSISdl::download
+ - NSISdl::download_quiet
+ - Splash::show
+ - StartMenu::Init
+ - StartMenu::Select
+ - StartMenu::Show
+ - System::Alloc
+ - System::Call
+ - System::Copy
+ - System::Free
+ - System::Get
+ - System::Int64Op
+ - System::Store
+ - TypeLib::GetLibVersion
+ - TypeLib::Register
+ - TypeLib::UnRegister
+ - UserInfo::GetAccountType
+ - UserInfo::GetName
+ - UserInfo::GetOriginalAccountType
+ - VPatch::GetFileCRC32
+ - VPatch::GetFileMD5
+ - VPatch::vpatchfile
+ - nsDialogs::Create
+ - nsDialogs::CreateControl
+ - nsDialogs::CreateItem
+ - nsDialogs::CreateTimer
+ - nsDialogs::GetUserData
+ - nsDialogs::KillTimer
+ - nsDialogs::OnBack
+ - nsDialogs::OnChange
+ - nsDialogs::OnClick
+ - nsDialogs::OnNotify
+ - nsDialogs::SelectFileDialog
+ - nsDialogs::SelectFolderDialog
+ - nsDialogs::SetRTL
+ - nsDialogs::SetUserData
+ - nsDialogs::Show
+ - nsExec::Exec
+ - nsExec::ExecToLog
+ - nsExec::ExecToStack
+
+!define: "MUI_INSERT_NSISCONF"=""
+
+Changing directory to: "C:\build\shoes\dist\nsis"
+
+Processing script file: "shoes.nsi"
+!define: "AppName"="Shoes"
+!define: "AppRelease"="Policeman"
+!define: "AppVersion"="0.r1251"
+!define: "AppMainEXE"="shoes.exe"
+!define: "ShortName"="shoes"
+!define: "InstallKey"="Software\Hackety.org\Shoes"
+!define: "_AddToPath_nsh"=""
+!define: "WriteEnvStr_RegKey"="HKCU "Environment""
+Function: "AddToPath"
+Exch($0,0)
+Push: $1
+Push: $2
+Push: $3
+IfFileExists: "$0\*.*" ?  : AddToPath_done
+ReadEnvStr: PATH->$1
+Push: $1;
+Push: $0;
+Call "StrStr"
+Pop: $2
+StrCmp "$2" "" equal=, nonequal=AddToPath_done
+Push: $1;
+Push: $0\;
+Call "StrStr"
+Pop: $2
+StrCmp "$2" "" equal=, nonequal=AddToPath_done
+GetFullPathName: $0->$3 (4649380)
+Push: $1;
+Push: $3;
+Call "StrStr"
+Pop: $2
+StrCmp "$2" "" equal=, nonequal=AddToPath_done
+Push: $1;
+Push: $3\;
+Call "StrStr"
+Pop: $2
+StrCmp "$2" "" equal=, nonequal=AddToPath_done
+Call "IsNT"
+Pop: $1
+StrCmp "$1" "1" equal=AddToPath_NT, nonequal=
+StrCpy $1 "$WINDIR" (2) ()
+FileOpen: $1\autoexec.bat as a -> $1
+FileSeek: fp=$1, ofs=-1, mode=END, output=
+FileReadByte: $1->$2
+IntCmp $2:26 equal=0, < +2, > +2
+FileSeek: fp=$1, ofs=-1, mode=END, output=
+FileWrite: 
+SET PATH=%PATH%;$3
+->$1
+FileClose: $1
+Goto: AddToPath_done
+ReadRegStr $1 HKCU\Environment\PATH
+StrCmp "$1" "" equal=AddToPath_NTdoIt, nonequal=
+Push: $1
+Call "Trim"
+Pop: $1
+StrCpy $0 "$1;$0" () ()
+WriteRegExpandStr: HKCU\Environment\PATH=$0
+SendMessage: (timeout=5000)(0xFFFF,0x001A,0,STR:Environment)
+Pop: $3
+Pop: $2
+Pop: $1
+Pop: $0
+FunctionEnd
+Function: "un.RemoveFromPath"
+Exch($0,0)
+Push: $1
+Push: $2
+Push: $3
+Push: $4
+Push: $5
+Push: $6
+IntFmt: 26->$6 (fmt:%c)
+Call "un.IsNT"
+Pop: $1
+StrCmp "$1" "1" equal=unRemoveFromPath_NT, nonequal=
+StrCpy $1 "$WINDIR" (2) ()
+FileOpen: $1\autoexec.bat as r -> $1
+GetTempFileName -> $4
+FileOpen: $4 as w -> $2
+GetFullPathName: $0->$0 (4649380)
+StrCpy $0 "SET PATH=%PATH%;$0" () ()
+Goto: unRemoveFromPath_dosLoop
+FileRead: $1->$3 (max:)
+StrCpy $5 "$3" (1) (-1)
+StrCmp "$5" "$6" equal=0, nonequal=+2
+StrCpy $3 "$3" (-1) ()
+StrCmp "$3" "$0
+" equal=unRemoveFromPath_dosLoopRemoveLine, nonequal=
+StrCmp "$3" "$0
+" equal=unRemoveFromPath_dosLoopRemoveLine, nonequal=
+StrCmp "$3" "$0" equal=unRemoveFromPath_dosLoopRemoveLine, nonequal=
+StrCmp "$3" "" equal=unRemoveFromPath_dosLoopEnd, nonequal=
+FileWrite: $3->$2
+Goto: unRemoveFromPath_dosLoop
+Goto: unRemoveFromPath_dosLoop
+FileClose: $2
+FileClose: $1
+StrCpy $1 "$WINDIR" (2) ()
+Delete: "$1\autoexec.bat"
+CopyFiles: (silent) "$4" -> "$1\autoexec.bat", size=0KB
+Delete: "$4"
+Goto: unRemoveFromPath_done
+ReadRegStr $1 HKCU\Environment\PATH
+StrCpy $5 "$1" (1) (-1)
+StrCmp "$5" ";" equal=+2, nonequal=
+StrCpy $1 "$1;" () ()
+Push: $1
+Push: $0;
+Call "un.StrStr"
+Pop: $2
+StrCmp "$2" "" equal=unRemoveFromPath_done, nonequal=
+StrLen $3 "$0;"
+StrLen $4 "$2"
+StrCpy $5 "$1" (-$4) ()
+StrCpy $6 "$2" () ($3)
+StrCpy $3 "$5$6" () ()
+StrCpy $5 "$3" (1) (-1)
+StrCmp "$5" ";" equal=0, nonequal=+2
+StrCpy $3 "$3" (-1) ()
+WriteRegExpandStr: HKCU\Environment\PATH=$3
+SendMessage: (timeout=5000)(0xFFFF,0x001A,0,STR:Environment)
+Pop: $6
+Pop: $5
+Pop: $4
+Pop: $3
+Pop: $2
+Pop: $1
+Pop: $0
+FunctionEnd
+Function: "AddToEnvVar"
+Exch($1,0)
+Exch(st(1),0)
+Exch($0,0)
+DetailPrint: "Adding $1 to $0"
+Push: $2
+Push: $3
+Push: $4
+ReadEnvStr: $0->$2
+Push: $2;
+Push: $1;
+Call "StrStr"
+Pop: $3
+StrCmp "$3" "" equal=, nonequal=AddToEnvVar_done
+Push: $2;
+Push: $1\;
+Call "StrStr"
+Pop: $3
+StrCmp "$3" "" equal=, nonequal=AddToEnvVar_done
+Call "IsNT"
+Pop: $2
+StrCmp "$2" "1" equal=AddToEnvVar_NT, nonequal=
+StrCpy $2 "$WINDIR" (2) ()
+FileOpen: $2\autoexec.bat as a -> $2
+FileSeek: fp=$2, ofs=-1, mode=END, output=
+FileReadByte: $2->$3
+IntCmp $3:26 equal=0, < +2, > +2
+FileSeek: fp=$2, ofs=-1, mode=END, output=
+FileWrite: 
+SET $0=%$0%;$4
+->$2
+FileClose: $2
+Goto: AddToEnvVar_done
+ReadRegStr $2 HKCU\Environment\$0
+StrCpy $3 "$2" (1) (-1)
+StrCmp "$3" ";" equal=0, nonequal=+2
+StrCpy $2 "$2" (-1) ()
+StrCmp "$2" "" equal=AddToEnvVar_NTdoIt, nonequal=
+StrCpy $1 "$2;$1" () ()
+WriteRegExpandStr: HKCU\Environment\$0=$1
+SendMessage: (timeout=5000)(0xFFFF,0x001A,0,STR:Environment)
+Pop: $4
+Pop: $3
+Pop: $2
+Pop: $0
+Pop: $1
+FunctionEnd
+Function: "un.RemoveFromEnvVar"
+Exch($1,0)
+Exch(st(1),0)
+Exch($0,0)
+DetailPrint: "Removing $1 from $0"
+Push: $2
+Push: $3
+Push: $4
+Push: $5
+Push: $6
+Push: $7
+IntFmt: 26->$7 (fmt:%c)
+Call "un.IsNT"
+Pop: $2
+StrCmp "$2" "1" equal=unRemoveFromEnvVar_NT, nonequal=
+StrCpy $2 "$WINDIR" (2) ()
+FileOpen: $2\autoexec.bat as r -> $2
+GetTempFileName -> $5
+FileOpen: $5 as w -> $3
+GetFullPathName: $1->$1 (4649380)
+StrCpy $1 "SET $0=%$0%;$1" () ()
+Goto: unRemoveFromEnvVar_dosLoop
+FileRead: $2->$4 (max:)
+StrCpy $6 "$4" (1) (-1)
+StrCmp "$6" "$7" equal=0, nonequal=+2
+StrCpy $4 "$4" (-1) ()
+StrCmp "$4" "$1
+" equal=unRemoveFromEnvVar_dosLoopRemoveLine, nonequal=
+StrCmp "$4" "$1
+" equal=unRemoveFromEnvVar_dosLoopRemoveLine, nonequal=
+StrCmp "$4" "$1" equal=unRemoveFromEnvVar_dosLoopRemoveLine, nonequal=
+StrCmp "$4" "" equal=unRemoveFromEnvVar_dosLoopEnd, nonequal=
+FileWrite: $4->$3
+Goto: unRemoveFromEnvVar_dosLoop
+Goto: unRemoveFromEnvVar_dosLoop
+FileClose: $3
+FileClose: $2
+StrCpy $2 "$WINDIR" (2) ()
+Delete: "$2\autoexec.bat"
+CopyFiles: (silent) "$5" -> "$2\autoexec.bat", size=0KB
+Delete: "$5"
+Goto: unRemoveFromEnvVar_done
+ReadRegStr $2 HKCU\Environment\$0
+StrCpy $6 "$2" (1) (-1)
+StrCmp "$6" ";" equal=+2, nonequal=
+StrCpy $2 "$2;" () ()
+Push: $2
+Push: $1;
+Call "un.StrStr"
+Pop: $3
+StrCmp "$3" "" equal=unRemoveFromEnvVar_done, nonequal=
+StrLen $4 "$1;"
+StrLen $5 "$3"
+StrCpy $6 "$2" (-$5) ()
+StrCpy $7 "$3" () ($4)
+StrCpy $4 "$6$7" () ()
+StrCpy $6 "$4" (1) (-1)
+StrCmp "$6" ";" equal=0, nonequal=+2
+StrCpy $4 "$4" (-1) ()
+WriteRegExpandStr: HKCU\Environment\$0=$4
+StrCmp "$4" "" equal=0, nonequal=+2
+DeleteRegValue: HKCU\Environment\$0
+SendMessage: (timeout=5000)(0xFFFF,0x001A,0,STR:Environment)
+Pop: $7
+Pop: $6
+Pop: $5
+Pop: $4
+Pop: $3
+Pop: $2
+Pop: $1
+Pop: $0
+FunctionEnd
+!define: "IsNT_KiCHiK"=""
+!insertmacro: IsNT
+Function: "IsNT"
+Push: $0
+ReadRegStr $0 HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\CurrentVersion
+StrCmp "$0" "" equal=0, nonequal=IsNT_yes
+Pop: $0
+Push: 0
+Return
+Pop: $0
+Push: 1
+FunctionEnd
+!insertmacro: end of IsNT
+!insertmacro: IsNT
+Function: "un.IsNT"
+Push: $0
+ReadRegStr $0 HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\CurrentVersion
+StrCmp "$0" "" equal=0, nonequal=IsNT_yes
+Pop: $0
+Push: 0
+Return
+Pop: $0
+Push: 1
+FunctionEnd
+!insertmacro: end of IsNT
+!insertmacro: StrStr
+Function: "StrStr"
+Exch($R1,0)
+Exch(st(1),0)
+Exch($R2,0)
+Push: $R3
+Push: $R4
+Push: $R5
+StrLen $R3 "$R1"
+StrCpy $R4 "0" () ()
+StrCpy $R5 "$R2" ($R3) ($R4)
+StrCmp "$R5" "$R1" equal=done, nonequal=
+StrCmp "$R5" "" equal=done, nonequal=
+IntOp: $R4=$R4+1
+Goto: loop
+StrCpy $R1 "$R2" () ($R4)
+Pop: $R5
+Pop: $R4
+Pop: $R3
+Pop: $R2
+Exch($R1,0)
+FunctionEnd
+!insertmacro: end of StrStr
+!insertmacro: StrStr
+Function: "un.StrStr"
+Exch($R1,0)
+Exch(st(1),0)
+Exch($R2,0)
+Push: $R3
+Push: $R4
+Push: $R5
+StrLen $R3 "$R1"
+StrCpy $R4 "0" () ()
+StrCpy $R5 "$R2" ($R3) ($R4)
+StrCmp "$R5" "$R1" equal=done, nonequal=
+StrCmp "$R5" "" equal=done, nonequal=
+IntOp: $R4=$R4+1
+Goto: loop
+StrCpy $R1 "$R2" () ($R4)
+Pop: $R5
+Pop: $R4
+Pop: $R3
+Pop: $R2
+Exch($R1,0)
+FunctionEnd
+!insertmacro: end of StrStr
+Function: "Trim"
+Exch($R1,0)
+Push: $R2
+StrCpy $R2 "$R1" (1) (-1)
+StrCmp "$R2" " " equal=RTrim, nonequal=
+StrCmp "$R2" "
+" equal=RTrim, nonequal=
+StrCmp "$R2" "" equal=RTrim, nonequal=
+StrCmp "$R2" ";" equal=RTrim, nonequal=
+Goto: Done
+StrCpy $R1 "$R1" (-1) ()
+Goto: Loop
+Pop: $R2
+Exch($R1,0)
+FunctionEnd
+!include: "C:\Program Files\NSIS\Include\MUI.nsh"
+!include: "C:\Program Files\NSIS\Contrib\Modern UI\System.nsh"
+NSIS Modern User Interface version 1.8 - Copyright 2002-2009 Joost Verburg (C:\Program Files\NSIS\Contrib\Modern UI\System.nsh:8)
+!define: "MUI_INCLUDED"=""
+!define: "MUI_SYSVERSION"="1.8"
+!define: "MUI_VERBOSE"="3"
+!include: closed: "C:\Program Files\NSIS\Contrib\Modern UI\System.nsh"
+!include: closed: "C:\Program Files\NSIS\Include\MUI.nsh"
+!include: "C:\Program Files\NSIS\Include\LogicLib.nsh"
+!include: closed: "C:\Program Files\NSIS\Include\LogicLib.nsh"
+Name: "Shoes (Policeman)"
+OutFile: "shoes-0.r1251.exe"
+InstallDir: "$COMMONFILES\Shoes"
+InstallRegKey: "HKLM\Software\Hackety.org\Shoes\Base"
+SetCompressor: /SOLID lzma
+Var: "MUI_TEMP"
+Var: "STARTMENU_FOLDER"
+!define: "MUI_ABORTWARNING"=""
+!define: "MUI_ICON"="setup.ico"
+!define: "MUI_UNICON"="setup.ico"
+!define: "MUI_WELCOMEPAGE_TITLE_3LINES"=""
+!define: "MUI_WELCOMEFINISHPAGE_BITMAP"="installer-1.bmp"
+!define: "MUI_HEADERIMAGE"=""
+!define: "MUI_HEADERIMAGE_RIGHT"=""
+!define: "MUI_HEADERIMAGE_BITMAP"="installer-2.bmp"
+!define: "MUI_COMPONENTSPAGE_NODESC"=""
+!insertmacro: MUI_PAGE_WELCOME
+!insertmacro: end of MUI_PAGE_WELCOME
+!define: "MUI_PAGE_HEADER_TEXT"="Shoes is MIT Licensed"
+!define: "MUI_PAGE_HEADER_SUBTEXT"="You are free to do as you please with Shoes."
+!define: "MUI_LICENSEPAGE_TEXT_TOP"="When you are ready to continue with Setup, click I Agree."
+!define: "MUI_LICENSEPAGE_TEXT_BOTTOM"=" "
+!insertmacro: MUI_PAGE_LICENSE
+!insertmacro: end of MUI_PAGE_LICENSE
+!define: "MUI_STARTMENUPAGE_DEFAULTFOLDER"="Shoes"
+!define: "MUI_STARTMENUPAGE_REGISTRY_ROOT"="HKLM"
+!define: "MUI_STARTMENUPAGE_REGISTRY_KEY"="Software\Hackety.org\Shoes"
+!define: "MUI_STARTMENUPAGE_REGISTRY_VALUENAME"="Start Menu Folder"
+!insertmacro: MUI_PAGE_STARTMENU
+!insertmacro: end of MUI_PAGE_STARTMENU
+!insertmacro: MUI_PAGE_DIRECTORY
+!insertmacro: end of MUI_PAGE_DIRECTORY
+!insertmacro: MUI_PAGE_INSTFILES
+!insertmacro: end of MUI_PAGE_INSTFILES
+!define: "MUI_FINISHPAGE_NOREBOOTSUPPORT"=""
+!define: "MUI_FINISHPAGE_TITLE_3LINES"=""
+!define: "MUI_FINISHPAGE_RUN"=""
+!define: "MUI_FINISHPAGE_RUN_FUNCTION"="LaunchApp"
+!define: "MUI_FINISHPAGE_RUN_TEXT"="$(LAUNCH_TEXT)"
+!insertmacro: MUI_PAGE_FINISH
+!insertmacro: end of MUI_PAGE_FINISH
+!insertmacro: MUI_UNPAGE_CONFIRM
+!insertmacro: end of MUI_UNPAGE_CONFIRM
+!insertmacro: MUI_UNPAGE_INSTFILES
+!insertmacro: end of MUI_UNPAGE_INSTFILES
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+LangString: "LAUNCH_TEXT" 1033 "Run Shoes"
+LangString: "TEXT_IO_TITLE" 1033 "Your Shoes Settings"
+LangString: "TEXT_IO_SUBTITLE" 1033 "Customize the way you use Shoes"
+Section: "App Section" ->(SecApp)
+WriteRegStr: HKLM\Software\Hackety.org\Shoes\=$INSTDIR\0.r1251
+WriteRegStr: HKLM\Software\Hackety.org\Shoes\Base=$INSTDIR
+StrCpy $INSTDIR "$INSTDIR\0.r1251" () ()
+SetOutPath: "$INSTDIR"
+File: "CHANGELOG.txt" 601 bytes
+File: "COPYING.txt" 1431 bytes
+File: "README.txt" 4483 bytes
+File: "VERSION.txt" 45 bytes
+File: "giflib4.dll" 31744 bytes
+File: "iconv.dll" 33098 bytes
+File: "intl.dll" 45056 bytes
+File: "jpeg62.dll" 127488 bytes
+File: "libcairo-2.dll" 636570 bytes
+File: "libeay32.dll" 1122304 bytes
+File: "libglib-2.0-0.dll" 1010481 bytes
+File: "libgmodule-2.0-0.dll" 30563 bytes
+File: "libgobject-2.0-0.dll" 295938 bytes
+File: "libpango-1.0-0.dll" 306900 bytes
+File: "libpangocairo-1.0-0.dll" 74441 bytes
+File: "libpangowin32-1.0-0.dll" 95807 bytes
+File: "libpng12-0.dll" 181974 bytes
+File: "libshoes.dll" 266240 bytes
+File: "libshoes.exp" 1514 bytes
+File: "libshoes.lib" 3302 bytes
+File: "msvcr90-ruby191.dll" 1179136 bytes
+File: "shoes.exe" 69632 bytes
+File: "shoes.exe.manifest" 711 bytes
+File: "sqlite3.dll" 440009 bytes
+File: "zlib.dll" 59904 bytes
+File: "zlib1.dll" 0/59904 bytes
+File: Descending to: "..\fonts\"
+File: "Coolvetica.ttf" 38828 bytes
+File: "Lacuna.ttf" 56784 bytes
+File: Descending to: "..\lib\"
+File: "shoes.rb" 14697 bytes
+File: Descending to: "..\lib\shoes\"
+File: "cache.rb" 1588 bytes
+File: "data.rb" 1005 bytes
+File: "help.rb" 14001 bytes
+File: "image.rb" 691 bytes
+File: "inspect.rb" 3221 bytes
+File: "log.rb" 1298 bytes
+File: "minitar.rb" 33362 bytes
+File: "pack.rb" 16495 bytes
+File: "search.rb" 1630 bytes
+File: "setup.rb" 11955 bytes
+File: "shy.rb" 2767 bytes
+File: Descending to: "..\pkg\"
+File: Descending to: "..\ruby\"
+File: Descending to: "..\ruby\gems\"
+File: Descending to: "..\ruby\gems\1.9.1\"
+File: Descending to: "..\ruby\gems\1.9.1\gems\"
+File: Descending to: "..\ruby\gems\1.9.1\gems\hpricot-0.8.1\"
+File: Descending to: "..\ruby\gems\1.9.1\gems\hpricot-0.8.1\lib\"
+File: "hpricot.rb" 1107 bytes
+File: Descending to: "..\ruby\gems\1.9.1\gems\hpricot-0.8.1\lib\hpricot\"
+File: "blankslate.rb" 1923 bytes
+File: "builder.rb" 6432 bytes
+File: "elements.rb" 15893 bytes
+File: "htmlinfo.rb" 38353 bytes
+File: "inspect.rb" 2202 bytes
+File: "modules.rb" 1562 bytes
+File: "parse.rb" 984 bytes
+File: "tag.rb" 4942 bytes
+File: "tags.rb" 6630 bytes
+File: "traverse.rb" 26031 bytes
+File: "xchar.rb" 3132 bytes
+File: Descending to: "..\ruby\gems\1.9.1\gems\json-shoes-1.1.3\"
+File: Descending to: "..\ruby\gems\1.9.1\gems\json-shoes-1.1.3\lib\"
+File: "json.rb" 156 bytes
+File: Descending to: "..\ruby\gems\1.9.1\gems\json-shoes-1.1.3\lib\json\"
+File: "common.rb" 12740 bytes
+File: "ext.rb" 343 bytes
+File: "version.rb" 306 bytes
+File: Descending to: "..\ruby\gems\1.9.1\gems\json-shoes-1.1.3\lib\json\add\"
+File: "core.rb" 2783 bytes
+File: "rails.rb" 1280 bytes
+File: Descending to: "..\ruby\gems\1.9.1\gems\json-shoes-1.1.3\lib\json\ext\"
+File: Descending to: "..\ruby\gems\1.9.1\gems\sqlite3-ruby-1.2.4\"
+File: Descending to: "..\ruby\gems\1.9.1\gems\sqlite3-ruby-1.2.4\lib\"
+File: "sqlite3.rb" 1782 bytes
+File: Descending to: "..\ruby\gems\1.9.1\gems\sqlite3-ruby-1.2.4\lib\sqlite3\"
+File: "constants.rb" 3548 bytes
+File: "database.rb" 27136 bytes
+File: "errors.rb" 4125 bytes
+File: "pragmas.rb" 9434 bytes
+File: "resultset.rb" 6396 bytes
+File: "statement.rb" 8696 bytes
+File: "translator.rb" 5469 bytes
+File: "value.rb" 2868 bytes
+File: "version.rb" 1921 bytes
+File: Descending to: "..\ruby\gems\1.9.1\gems\sqlite3-ruby-1.2.4\lib\sqlite3\driver\"
+File: Descending to: "..\ruby\gems\1.9.1\gems\sqlite3-ruby-1.2.4\lib\sqlite3\driver\native\"
+File: "driver.rb" 7775 bytes
+File: Descending to: "..\ruby\gems\1.9.1\specifications\"
+File: "hpricot-0.8.1.gemspec" 2481 bytes
+File: "json-shoes-1.1.3.gemspec" 3583 bytes
+File: "sqlite3-ruby-1.2.4.gemspec" 2099 bytes
+File: Descending to: "..\ruby\lib\"
+File: "English.rb" 5732 bytes
+File: "Win32API.rb" 888 bytes
+File: "abbrev.rb" 2563 bytes
+File: "base64.rb" 2696 bytes
+File: "benchmark.rb" 18232 bytes
+File: "cgi.rb" 9673 bytes
+File: "cmath.rb" 3920 bytes
+File: "complex.rb" 318 bytes
+File: "csv.rb" 84405 bytes
+File: "date.rb" 55671 bytes
+File: "debug.rb" 20173 bytes
+File: "delegate.rb" 8074 bytes
+File: "digest.rb" 1145 bytes
+File: "drb.rb" 19 bytes
+File: "e2mmap.rb" 3734 bytes
+File: "erb.rb" 22759 bytes
+File: "fileutils.rb" 43174 bytes
+File: "find.rb" 1979 bytes
+File: "forwardable.rb" 7303 bytes
+File: "getoptlong.rb" 15017 bytes
+File: "gserver.rb" 6585 bytes
+File: "ipaddr.rb" 22445 bytes
+File: "irb.rb" 7463 bytes
+File: "json.rb" 11052 bytes
+File: "kconv.rb" 5821 bytes
+File: "logger.rb" 18631 bytes
+File: "mathn.rb" 3784 bytes
+File: "matrix.rb" 30691 bytes
+File: "mkmf.rb" 56270 bytes
+File: "monitor.rb" 5692 bytes
+File: "mutex_m.rb" 1511 bytes
+File: "observer.rb" 5416 bytes
+File: "open-uri.rb" 26156 bytes
+File: "open3.rb" 2435 bytes
+File: "optparse.rb" 48797 bytes
+File: "ostruct.rb" 3404 bytes
+File: "pathname.rb" 30512 bytes
+File: "pp.rb" 17457 bytes
+File: "prettyprint.rb" 18768 bytes
+File: "prime.rb" 12774 bytes
+File: "profile.rb" 205 bytes
+File: "profiler.rb" 1626 bytes
+File: "pstore.rb" 16264 bytes
+File: "rake.rb" 71292 bytes
+File: "rational.rb" 235 bytes
+File: "rdoc.rb" 14089 bytes
+File: "resolv-replace.rb" 1590 bytes
+File: "resolv.rb" 57016 bytes
+File: "ripper.rb" 91 bytes
+File: "rss.rb" 504 bytes
+File: "rubygems.rb" 22844 bytes
+File: "scanf.rb" 21090 bytes
+File: "securerandom.rb" 5639 bytes
+File: "set.rb" 27519 bytes
+File: "shell.rb" 5825 bytes
+File: "shellwords.rb" 3763 bytes
+File: "singleton.rb" 7271 bytes
+File: "sync.rb" 6234 bytes
+File: "tempfile.rb" 5288 bytes
+File: "thread.rb" 6328 bytes
+File: "thwait.rb" 4322 bytes
+File: "time.rb" 34823 bytes
+File: "timeout.rb" 2908 bytes
+File: "tmpdir.rb" 3824 bytes
+File: "tracer.rb" 2770 bytes
+File: "tsort.rb" 8151 bytes
+File: "ubygems.rb" 278 bytes
+File: "un.rb" 6773 bytes
+File: "uri.rb" 711 bytes
+File: "weakref.rb" 1874 bytes
+File: "webrick.rb" 811 bytes
+File: "yaml.rb" 12668 bytes
+File: Descending to: "..\ruby\lib\bigdecimal\"
+File: "jacobian.rb" 2024 bytes
+File: "ludcmp.rb" 2127 bytes
+File: "math.rb" 6057 bytes
+File: "newton.rb" 1806 bytes
+File: "util.rb" 1180 bytes
+File: Descending to: "..\ruby\lib\cgi\"
+File: "cookie.rb" 4371 bytes
+File: "core.rb" 25782 bytes
+File: "html.rb" 34473 bytes
+File: "session.rb" 18851 bytes
+File: "util.rb" 5752 bytes
+File: Descending to: "..\ruby\lib\cgi\session\"
+File: "pstore.rb" 3298 bytes
+File: Descending to: "..\ruby\lib\date\"
+File: "format.rb" 32080 bytes
+File: Descending to: "..\ruby\lib\digest\"
+File: "hmac.rb" 6889 bytes
+File: "sha2.rb" 1475 bytes
+File: Descending to: "..\ruby\lib\dl\"
+File: "callback.rb" 1688 bytes
+File: "cparser.rb" 2737 bytes
+File: "func.rb" 3417 bytes
+File: "import.rb" 5295 bytes
+File: "pack.rb" 4115 bytes
+File: "stack.rb" 3211 bytes
+File: "struct.rb" 5100 bytes
+File: "types.rb" 1181 bytes
+File: "value.rb" 2710 bytes
+File: Descending to: "..\ruby\lib\drb\"
+File: "acl.rb" 2643 bytes
+File: "drb.rb" 53442 bytes
+File: "eq.rb" 253 bytes
+File: "extserv.rb" 1212 bytes
+File: "extservm.rb" 1494 bytes
+File: "gw.rb" 1925 bytes
+File: "invokemethod.rb" 731 bytes
+File: "observer.rb" 473 bytes
+File: "ssl.rb" 5015 bytes
+File: "timeridconv.rb" 1507 bytes
+File: "unix.rb" 2487 bytes
+File: Descending to: "..\ruby\lib\ftsearch\"
+File: "document_map_reader.rb" 2510 bytes
+File: "document_map_writer.rb" 1011 bytes
+File: "field_infos.rb" 1096 bytes
+File: "fragment_writer.rb" 4043 bytes
+File: "fulltext_reader.rb" 1174 bytes
+File: "fulltext_writer.rb" 2072 bytes
+File: "suffix_array_reader.rb" 7479 bytes
+File: "suffix_array_writer.rb" 2530 bytes
+File: "util.rb" 362 bytes
+File: Descending to: "..\ruby\lib\ftsearch\analysis\"
+File: "analyzer.rb" 244 bytes
+File: "simple_identifier_analyzer.rb" 482 bytes
+File: "whitespace_analyzer.rb" 475 bytes
+File: Descending to: "..\ruby\lib\i386-mswin32_90\"
+File: "bigdecimal.so" 39424 bytes
+File: "continuation.so" 7168 bytes
+File: "coverage.so" 7680 bytes
+File: "digest.so" 12800 bytes
+File: "dl.so" 926208 bytes
+File: "etc.so" 8192 bytes
+File: "fcntl.so" 7680 bytes
+File: "fiber.so" 7168 bytes
+File: "nkf.so" 170496 bytes
+File: "rbconfig.rb" 7013 bytes
+File: "ripper.so" 131072 bytes
+File: "sdbm.so" 19968 bytes
+File: "socket.so" 36864 bytes
+File: "stringio.so" 19968 bytes
+File: "strscan.so" 17408 bytes
+File: "syck.so" 78336 bytes
+File: "win32ole.so" 73728 bytes
+File: Descending to: "..\ruby\lib\i386-mswin32_90\digest\"
+File: "bubblebabble.so" 8192 bytes
+File: "md5.so" 10240 bytes
+File: "rmd160.so" 13824 bytes
+File: "sha1.so" 12800 bytes
+File: "sha2.so" 14848 bytes
+File: Descending to: "..\ruby\lib\i386-mswin32_90\enc\"
+File: "big5.so" 10240 bytes
+File: "cp949.so" 10240 bytes
+File: "emacs_mule.so" 11264 bytes
+File: "encdb.so" 11264 bytes
+File: "euc_jp.so" 10752 bytes
+File: "euc_kr.so" 9728 bytes
+File: "euc_tw.so" 10240 bytes
+File: "gb18030.so" 11264 bytes
+File: "gb2312.so" 7168 bytes
+File: "gbk.so" 10240 bytes
+File: "iso_8859_1.so" 9216 bytes
+File: "iso_8859_10.so" 9216 bytes
+File: "iso_8859_11.so" 8192 bytes
+File: "iso_8859_13.so" 8704 bytes
+File: "iso_8859_14.so" 9216 bytes
+File: "iso_8859_15.so" 8704 bytes
+File: "iso_8859_16.so" 9216 bytes
+File: "iso_8859_2.so" 8704 bytes
+File: "iso_8859_3.so" 8704 bytes
+File: "iso_8859_4.so" 8704 bytes
+File: "iso_8859_5.so" 9216 bytes
+File: "iso_8859_6.so" 8192 bytes
+File: "iso_8859_7.so" 8704 bytes
+File: "iso_8859_8.so" 8192 bytes
+File: "iso_8859_9.so" 8704 bytes
+File: "koi8_r.so" 8704 bytes
+File: "koi8_u.so" 8704 bytes
+File: "shift_jis.so" 10752 bytes
+File: "utf_16be.so" 9216 bytes
+File: "utf_16le.so" 9216 bytes
+File: "utf_32be.so" 8192 bytes
+File: "utf_32le.so" 8192 bytes
+File: "windows_1251.so" 8704 bytes
+File: Descending to: "..\ruby\lib\i386-mswin32_90\enc\trans\"
+File: "big5.so" 152576 bytes
+File: "chinese.so" 185344 bytes
+File: "escape.so" 8704 bytes
+File: "gb18030.so" 600576 bytes
+File: "gbk.so" 197120 bytes
+File: "iso2022.so" 9216 bytes
+File: "japanese.so" 8704 bytes
+File: "japanese_euc.so" 241664 bytes
+File: "japanese_sjis.so" 152064 bytes
+File: "korean.so" 245760 bytes
+File: "single_byte.so" 92672 bytes
+File: "transdb.so" 12288 bytes
+File: "utf_16_32.so" 11776 bytes
+File: Descending to: "..\ruby\lib\i386-mswin32_90\io\"
+File: "wait.so" 8192 bytes
+File: Descending to: "..\ruby\lib\i386-mswin32_90\json\"
+File: Descending to: "..\ruby\lib\i386-mswin32_90\json\ext\"
+File: "generator.so" 19456 bytes
+File: "parser.so" 16384 bytes
+File: Descending to: "..\ruby\lib\i386-mswin32_90\mathn\"
+File: "complex.so" 7168 bytes
+File: "rational.so" 7168 bytes
+File: Descending to: "..\ruby\lib\i386-mswin32_90\racc\"
+File: "cparse.so" 15360 bytes
+File: Descending to: "..\ruby\lib\io\"
+File: "nonblock.rb" 408 bytes
+File: Descending to: "..\ruby\lib\irb\"
+File: "completion.rb" 5339 bytes
+File: "context.rb" 6120 bytes
+File: "extend-command.rb" 6999 bytes
+File: "frame.rb" 1243 bytes
+File: "help.rb" 552 bytes
+File: "init.rb" 6841 bytes
+File: "input-method.rb" 2574 bytes
+File: "locale.rb" 4208 bytes
+File: "magic-file.rb" 844 bytes
+File: "notifier.rb" 2718 bytes
+File: "output-method.rb" 1342 bytes
+File: "ruby-lex.rb" 21919 bytes
+File: "ruby-token.rb" 7535 bytes
+File: "slex.rb" 6139 bytes
+File: "src_encoding.rb" 90 bytes
+File: "version.rb" 244 bytes
+File: "workspace.rb" 2610 bytes
+File: "ws-for-case-2.rb" 199 bytes
+File: "xmp.rb" 1807 bytes
+File: Descending to: "..\ruby\lib\irb\cmd\"
+File: "chws.rb" 466 bytes
+File: "fork.rb" 559 bytes
+File: "help.rb" 566 bytes
+File: "load.rb" 1141 bytes
+File: "nop.rb" 536 bytes
+File: "pushws.rb" 590 bytes
+File: "subirb.rb" 599 bytes
+File: Descending to: "..\ruby\lib\irb\ext\"
+File: "change-ws.rb" 1110 bytes
+File: "history.rb" 2105 bytes
+File: "loader.rb" 2243 bytes
+File: "math-mode.rb" 566 bytes
+File: "multi-irb.rb" 4801 bytes
+File: "save-history.rb" 1821 bytes
+File: "tracer.rb" 1131 bytes
+File: "use-loader.rb" 1304 bytes
+File: "workspaces.rb" 919 bytes
+File: Descending to: "..\ruby\lib\irb\lc\"
+File: "error.rb" 867 bytes
+File: "help-message" 1398 bytes
+File: Descending to: "..\ruby\lib\irb\lc\ja\"
+File: "encoding_aliases.rb" 151 bytes
+File: "error.rb" 1087 bytes
+File: "help-message" 1798 bytes
+File: Descending to: "..\ruby\lib\json\"
+File: "common.rb" 12386 bytes
+File: "editor.rb" 42296 bytes
+File: "ext.rb" 352 bytes
+File: "version.rb" 297 bytes
+File: Descending to: "..\ruby\lib\json\add\"
+File: "core.rb" 2653 bytes
+File: "rails.rb" 1222 bytes
+File: Descending to: "..\ruby\lib\minitest\"
+File: "autorun.rb" 314 bytes
+File: "mock.rb" 1162 bytes
+File: "spec.rb" 2894 bytes
+File: "unit.rb" 14307 bytes
+File: Descending to: "..\ruby\lib\net\"
+File: "ftp.rb" 24109 bytes
+File: "http.rb" 69511 bytes
+File: "https.rb" 3417 bytes
+File: "imap.rb" 103872 bytes
+File: "pop.rb" 26370 bytes
+File: "protocol.rb" 7478 bytes
+File: "smtp.rb" 28218 bytes
+File: "telnet.rb" 32554 bytes
+File: Descending to: "..\ruby\lib\optparse\"
+File: "date.rb" 325 bytes
+File: "shellwords.rb" 121 bytes
+File: "time.rb" 188 bytes
+File: "uri.rb" 100 bytes
+File: "version.rb" 2034 bytes
+File: Descending to: "..\ruby\lib\racc\"
+File: "parser.rb" 11713 bytes
+File: Descending to: "..\ruby\lib\rake\"
+File: "classic_namespace.rb" 283 bytes
+File: "clean.rb" 1027 bytes
+File: "gempackagetask.rb" 2899 bytes
+File: "packagetask.rb" 5120 bytes
+File: "rake_test_loader.rb" 110 bytes
+File: "rdoctask.rb" 3819 bytes
+File: "runtest.rb" 432 bytes
+File: "tasklib.rb" 579 bytes
+File: "testtask.rb" 4524 bytes
+File: "win32.rb" 963 bytes
+File: Descending to: "..\ruby\lib\rake\loaders\"
+File: "makefile.rb" 781 bytes
+File: Descending to: "..\ruby\lib\rbconfig\"
+File: "datadir.rb" 661 bytes
+File: Descending to: "..\ruby\lib\rdoc\"
+File: "code_objects.rb" 24464 bytes
+File: "diagram.rb" 12146 bytes
+File: "dot.rb" 5179 bytes
+File: "generator.rb" 26794 bytes
+File: "known_classes.rb" 2470 bytes
+File: "markup.rb" 10270 bytes
+File: "options.rb" 16029 bytes
+File: "parser.rb" 3287 bytes
+File: "rdoc.rb" 8291 bytes
+File: "ri.rb" 72 bytes
+File: "stats.rb" 1959 bytes
+File: "template.rb" 1519 bytes
+File: "tokenstream.rb" 676 bytes
+File: Descending to: "..\ruby\lib\rdoc\generator\"
+File: "chm.rb" 2793 bytes
+File: "html.rb" 12340 bytes
+File: "ri.rb" 5648 bytes
+File: "texinfo.rb" 2371 bytes
+File: "xml.rb" 2455 bytes
+File: Descending to: "..\ruby\lib\rdoc\generator\chm\"
+File: "chm.rb" 2544 bytes
+File: Descending to: "..\ruby\lib\rdoc\generator\html\"
+File: "common.rb" 713 bytes
+File: "frameless.rb" 2369 bytes
+File: "hefss.rb" 3190 bytes
+File: "html.rb" 18266 bytes
+File: "kilmer.rb" 3004 bytes
+File: "kilmerfactory.rb" 11830 bytes
+File: "one_page_html.rb" 3422 bytes
+File: Descending to: "..\ruby\lib\rdoc\generator\template\"
+File: Descending to: "..\ruby\lib\rdoc\generator\texinfo\"
+File: "class.texinfo.erb" 1577 bytes
+File: "file.texinfo.erb" 171 bytes
+File: "method.texinfo.erb" 482 bytes
+File: "texinfo.erb" 659 bytes
+File: Descending to: "..\ruby\lib\rdoc\generator\xml\"
+File: "rdf.rb" 3576 bytes
+File: "xml.rb" 3836 bytes
+File: Descending to: "..\ruby\lib\rdoc\markup\"
+File: "attribute_manager.rb" 6375 bytes
+File: "formatter.rb" 178 bytes
+File: "fragments.rb" 7409 bytes
+File: "inline.rb" 2112 bytes
+File: "lines.rb" 2865 bytes
+File: "preprocess.rb" 1785 bytes
+File: "to_flow.rb" 4262 bytes
+File: "to_html.rb" 9370 bytes
+File: "to_html_crossref.rb" 5786 bytes
+File: "to_latex.rb" 7754 bytes
+File: "to_test.rb" 804 bytes
+File: "to_texinfo.rb" 1550 bytes
+File: Descending to: "..\ruby\lib\rdoc\markup\simple_markup\"
+File: Descending to: "..\ruby\lib\rdoc\parser\"
+File: "c.rb" 20671 bytes
+File: "f95.rb" 57144 bytes
+File: "perl.rb" 4398 bytes
+File: "ruby.rb" 65084 bytes
+File: "simple.rb" 871 bytes
+File: Descending to: "..\ruby\lib\rdoc\ri\"
+File: "cache.rb" 4710 bytes
+File: "descriptions.rb" 3140 bytes
+File: "display.rb" 10189 bytes
+File: "driver.rb" 18044 bytes
+File: "formatter.rb" 12637 bytes
+File: "paths.rb" 2703 bytes
+File: "reader.rb" 2094 bytes
+File: "util.rb" 2086 bytes
+File: "writer.rb" 1547 bytes
+File: Descending to: "..\ruby\lib\rexml\"
+File: "attlistdecl.rb" 1934 bytes
+File: "attribute.rb" 5543 bytes
+File: "cdata.rb" 1578 bytes
+File: "child.rb" 2699 bytes
+File: "comment.rb" 2175 bytes
+File: "doctype.rb" 6767 bytes
+File: "document.rb" 7900 bytes
+File: "element.rb" 44974 bytes
+File: "encoding.rb" 2110 bytes
+File: "entity.rb" 5368 bytes
+File: "functions.rb" 11233 bytes
+File: "instruction.rb" 2062 bytes
+File: "namespace.rb" 1118 bytes
+File: "node.rb" 2052 bytes
+File: "output.rb" 409 bytes
+File: "parent.rb" 4501 bytes
+File: "parseexception.rb" 1232 bytes
+File: "quickpath.rb" 8656 bytes
+File: "rexml.rb" 1344 bytes
+File: "sax2listener.rb" 3691 bytes
+File: "source.rb" 7483 bytes
+File: "streamlistener.rb" 3975 bytes
+File: "syncenumerator.rb" 685 bytes
+File: "text.rb" 13613 bytes
+File: "undefinednamespaceexception.rb" 210 bytes
+File: "xmldecl.rb" 2846 bytes
+File: "xmltokens.rb" 530 bytes
+File: "xpath.rb" 3192 bytes
+File: "xpath_parser.rb" 25795 bytes
+File: Descending to: "..\ruby\lib\rexml\dtd\"
+File: "attlistdecl.rb" 197 bytes
+File: "dtd.rb" 1319 bytes
+File: "elementdecl.rb" 420 bytes
+File: "entitydecl.rb" 1666 bytes
+File: "notationdecl.rb" 1060 bytes
+File: Descending to: "..\ruby\lib\rexml\encodings\"
+File: "CP-1252.rb" 4146 bytes
+File: "EUC-JP.rb" 595 bytes
+File: "ICONV.rb" 433 bytes
+File: "ISO-8859-1.rb" 134 bytes
+File: "ISO-8859-15.rb" 2311 bytes
+File: "SHIFT-JIS.rb" 647 bytes
+File: "SHIFT_JIS.rb" 36 bytes
+File: "UNILE.rb" 746 bytes
+File: "US-ASCII.rb" 654 bytes
+File: "UTF-16.rb" 793 bytes
+File: "UTF-8.rb" 268 bytes
+File: Descending to: "..\ruby\lib\rexml\formatters\"
+File: "default.rb" 2795 bytes
+File: "pretty.rb" 4472 bytes
+File: "transitive.rb" 1853 bytes
+File: Descending to: "..\ruby\lib\rexml\light\"
+File: "node.rb" 4825 bytes
+File: Descending to: "..\ruby\lib\rexml\parsers\"
+File: "baseparser.rb" 19913 bytes
+File: "lightparser.rb" 1486 bytes
+File: "pullparser.rb" 5207 bytes
+File: "sax2parser.rb" 8797 bytes
+File: "streamparser.rb" 1427 bytes
+File: "treeparser.rb" 3567 bytes
+File: "ultralightparser.rb" 1386 bytes
+File: "xpathparser.rb" 19895 bytes
+File: Descending to: "..\ruby\lib\rexml\validation\"
+File: "relaxng.rb" 14975 bytes
+File: "validation.rb" 4161 bytes
+File: "validationexception.rb" 145 bytes
+File: Descending to: "..\ruby\lib\rinda\"
+File: "rinda.rb" 5951 bytes
+File: "ring.rb" 5956 bytes
+File: "tuplespace.rb" 14224 bytes
+File: Descending to: "..\ruby\lib\ripper\"
+File: "core.rb" 1583 bytes
+File: "filter.rb" 1763 bytes
+File: "lexer.rb" 4341 bytes
+File: "sexp.rb" 2385 bytes
+File: Descending to: "..\ruby\lib\rss\"
+File: "0.9.rb" 9711 bytes
+File: "1.0.rb" 8828 bytes
+File: "2.0.rb" 2368 bytes
+File: "atom.rb" 19329 bytes
+File: "content.rb" 771 bytes
+File: "converter.rb" 4010 bytes
+File: "dublincore.rb" 4334 bytes
+File: "image.rb" 4728 bytes
+File: "itunes.rb" 10194 bytes
+File: "maker.rb" 954 bytes
+File: "parser.rb" 15873 bytes
+File: "rexmlparser.rb" 1137 bytes
+File: "rss.rb" 33865 bytes
+File: "slash.rb" 1245 bytes
+File: "syndication.rb" 1804 bytes
+File: "taxonomy.rb" 3103 bytes
+File: "trackback.rb" 6833 bytes
+File: "utils.rb" 2683 bytes
+File: "xml-stylesheet.rb" 2187 bytes
+File: "xml.rb" 1503 bytes
+File: "xmlparser.rb" 1610 bytes
+File: "xmlscanner.rb" 2172 bytes
+File: Descending to: "..\ruby\lib\rss\content\"
+File: "1.0.rb" 163 bytes
+File: "2.0.rb" 191 bytes
+File: Descending to: "..\ruby\lib\rss\dublincore\"
+File: "1.0.rb" 303 bytes
+File: "2.0.rb" 217 bytes
+File: "atom.rb" 276 bytes
+File: Descending to: "..\ruby\lib\rss\maker\"
+File: "0.9.rb" 11477 bytes
+File: "1.0.rb" 10263 bytes
+File: "2.0.rb" 5897 bytes
+File: "atom.rb" 4607 bytes
+File: "base.rb" 23016 bytes
+File: "content.rb" 384 bytes
+File: "dublincore.rb" 4019 bytes
+File: "entry.rb" 4835 bytes
+File: "feed.rb" 12971 bytes
+File: "image.rb" 2918 bytes
+File: "itunes.rb" 7433 bytes
+File: "slash.rb" 735 bytes
+File: "syndication.rb" 349 bytes
+File: "taxonomy.rb" 3208 bytes
+File: "trackback.rb" 1616 bytes
+File: Descending to: "..\ruby\lib\rubygems\"
+File: "builder.rb" 2218 bytes
+File: "command.rb" 11727 bytes
+File: "command_manager.rb" 4297 bytes
+File: "config_file.rb" 7440 bytes
+File: "custom_require.rb" 1126 bytes
+File: "defaults.rb" 1849 bytes
+File: "dependency.rb" 2688 bytes
+File: "dependency_installer.rb" 8402 bytes
+File: "dependency_list.rb" 3856 bytes
+File: "doc_manager.rb" 5349 bytes
+File: "exceptions.rb" 2320 bytes
+File: "ext.rb" 397 bytes
+File: "format.rb" 2188 bytes
+File: "gem_openssl.rb" 2418 bytes
+File: "gem_path_searcher.rb" 2810 bytes
+File: "gem_runner.rb" 1849 bytes
+File: "indexer.rb" 9905 bytes
+File: "install_update_options.rb" 3901 bytes
+File: "installer.rb" 17106 bytes
+File: "local_remote_options.rb" 3234 bytes
+File: "old_format.rb" 4254 bytes
+File: "package.rb" 2612 bytes
+File: "platform.rb" 5414 bytes
+File: "remote_fetcher.rb" 9403 bytes
+File: "require_paths_builder.rb" 528 bytes
+File: "requirement.rb" 3872 bytes
+File: "rubygems_version.rb" 139 bytes
+File: "security.rb" 29770 bytes
+File: "server.rb" 17228 bytes
+File: "source_index.rb" 14795 bytes
+File: "source_info_cache.rb" 9560 bytes
+File: "source_info_cache_entry.rb" 1267 bytes
+File: "spec_fetcher.rb" 6204 bytes
+File: "specification.rb" 35137 bytes
+File: "test_utilities.rb" 2783 bytes
+File: "timer.rb" 536 bytes
+File: "uninstaller.rb" 6476 bytes
+File: "user_interaction.rb" 7913 bytes
+File: "validator.rb" 6333 bytes
+File: "version.rb" 3730 bytes
+File: "version_option.rb" 1343 bytes
+File: Descending to: "..\ruby\lib\rubygems\commands\"
+File: "build_command.rb" 1187 bytes
+File: "cert_command.rb" 2934 bytes
+File: "check_command.rb" 2028 bytes
+File: "cleanup_command.rb" 2370 bytes
+File: "contents_command.rb" 1825 bytes
+File: "dependency_command.rb" 5140 bytes
+File: "environment_command.rb" 4051 bytes
+File: "fetch_command.rb" 1462 bytes
+File: "generate_index_command.rb" 1881 bytes
+File: "help_command.rb" 4839 bytes
+File: "install_command.rb" 4676 bytes
+File: "list_command.rb" 731 bytes
+File: "lock_command.rb" 2878 bytes
+File: "mirror_command.rb" 3227 bytes
+File: "outdated_command.rb" 806 bytes
+File: "pristine_command.rb" 2584 bytes
+File: "query_command.rb" 6438 bytes
+File: "rdoc_command.rb" 2157 bytes
+File: "search_command.rb" 743 bytes
+File: "server_command.rb" 1274 bytes
+File: "sources_command.rb" 4222 bytes
+File: "specification_command.rb" 1782 bytes
+File: "stale_command.rb" 707 bytes
+File: "uninstall_command.rb" 2197 bytes
+File: "unpack_command.rb" 2703 bytes
+File: "update_command.rb" 5007 bytes
+File: "which_command.rb" 2021 bytes
+File: Descending to: "..\ruby\lib\rubygems\digest\"
+File: "digest_adapter.rb" 1074 bytes
+File: "md5.rb" 454 bytes
+File: "sha1.rb" 364 bytes
+File: "sha2.rb" 374 bytes
+File: Descending to: "..\ruby\lib\rubygems\ext\"
+File: "builder.rb" 1366 bytes
+File: "configure_builder.rb" 483 bytes
+File: "ext_conf_builder.rb" 480 bytes
+File: "rake_builder.rb" 652 bytes
+File: Descending to: "..\ruby\lib\rubygems\indexer\"
+File: "abstract_index_builder.rb" 1977 bytes
+File: "latest_index_builder.rb" 545 bytes
+File: "marshal_index_builder.rb" 385 bytes
+File: "master_index_builder.rb" 1162 bytes
+File: "quick_index_builder.rb" 1225 bytes
+File: Descending to: "..\ruby\lib\rubygems\package\"
+File: "f_sync_dir.rb" 430 bytes
+File: "tar_header.rb" 6315 bytes
+File: "tar_input.rb" 6601 bytes
+File: "tar_output.rb" 3957 bytes
+File: "tar_reader.rb" 1687 bytes
+File: "tar_writer.rb" 3455 bytes
+File: Descending to: "..\ruby\lib\rubygems\package\tar_reader\"
+File: "entry.rb" 1481 bytes
+File: Descending to: "..\ruby\lib\shell\"
+File: "builtin-command.rb" 2579 bytes
+File: "command-processor.rb" 14993 bytes
+File: "error.rb" 568 bytes
+File: "filter.rb" 1682 bytes
+File: "process-controller.rb" 7007 bytes
+File: "system-command.rb" 3311 bytes
+File: "version.rb" 239 bytes
+File: Descending to: "..\ruby\lib\test\"
+File: "unit.rb" 1537 bytes
+File: Descending to: "..\ruby\lib\test\unit\"
+File: "assertions.rb" 3827 bytes
+File: "testcase.rb" 199 bytes
+File: Descending to: "..\ruby\lib\uri\"
+File: "common.rb" 20917 bytes
+File: "ftp.rb" 5256 bytes
+File: "generic.rb" 24585 bytes
+File: "http.rb" 2655 bytes
+File: "https.rb" 503 bytes
+File: "ldap.rb" 3342 bytes
+File: "ldaps.rb" 286 bytes
+File: "mailto.rb" 6731 bytes
+File: Descending to: "..\ruby\lib\webrick\"
+File: "accesslog.rb" 2113 bytes
+File: "cgi.rb" 7097 bytes
+File: "compat.rb" 436 bytes
+File: "config.rb" 3385 bytes
+File: "cookie.rb" 3105 bytes
+File: "htmlutils.rb" 584 bytes
+File: "httpauth.rb" 1341 bytes
+File: "httpproxy.rb" 8391 bytes
+File: "httprequest.rb" 11596 bytes
+File: "httpresponse.rb" 8226 bytes
+File: "https.rb" 1628 bytes
+File: "httpserver.rb" 6058 bytes
+File: "httpservlet.rb" 669 bytes
+File: "httpstatus.rb" 3460 bytes
+File: "httputils.rb" 10230 bytes
+File: "httpversion.rb" 1142 bytes
+File: "log.rb" 2083 bytes
+File: "server.rb" 5737 bytes
+File: "ssl.rb" 4323 bytes
+File: "utils.rb" 4549 bytes
+File: "version.rb" 351 bytes
+File: Descending to: "..\ruby\lib\webrick\httpauth\"
+File: "authenticator.rb" 2374 bytes
+File: "basicauth.rb" 1752 bytes
+File: "digestauth.rb" 11485 bytes
+File: "htdigest.rb" 2167 bytes
+File: "htgroup.rb" 1442 bytes
+File: "htpasswd.rb" 2027 bytes
+File: "userdb.rb" 726 bytes
+File: Descending to: "..\ruby\lib\webrick\httpservlet\"
+File: "abstract.rb" 1797 bytes
+File: "cgi_runner.rb" 997 bytes
+File: "cgihandler.rb" 3479 bytes
+File: "erbhandler.rb" 1448 bytes
+File: "filehandler.rb" 14061 bytes
+File: "prochandler.rb" 695 bytes
+File: Descending to: "..\ruby\lib\win32\"
+File: "registry.rb" 22540 bytes
+File: "resolv.rb" 11232 bytes
+File: "sspi.rb" 10848 bytes
+File: Descending to: "..\ruby\lib\win32ole\"
+File: "property.rb" 362 bytes
+File: Descending to: "..\ruby\lib\xmlrpc\"
+File: "base64.rb" 1778 bytes
+File: "client.rb" 19192 bytes
+File: "config.rb" 990 bytes
+File: "create.rb" 6716 bytes
+File: "datetime.rb" 3711 bytes
+File: "httpserver.rb" 3984 bytes
+File: "marshal.rb" 1595 bytes
+File: "parser.rb" 19877 bytes
+File: "server.rb" 22281 bytes
+File: "utils.rb" 3552 bytes
+File: Descending to: "..\ruby\lib\yaml\"
+File: "baseemitter.rb" 4986 bytes
+File: "basenode.rb" 6128 bytes
+File: "constants.rb" 1186 bytes
+File: "dbm.rb" 2298 bytes
+File: "encoding.rb" 605 bytes
+File: "error.rb" 1069 bytes
+File: "loader.rb" 296 bytes
+File: "rubytypes.rb" 13851 bytes
+File: "store.rb" 703 bytes
+File: "stream.rb" 700 bytes
+File: "stringio.rb" 1969 bytes
+File: "syck.rb" 271 bytes
+File: "tag.rb" 3156 bytes
+File: "types.rb" 5002 bytes
+File: "yamlnode.rb" 1219 bytes
+File: "ypath.rb" 1328 bytes
+File: Descending to: "..\samples\"
+File: "class-book.rb" 1029 bytes
+File: "class-book.yaml" 44877 bytes
+File: "expert-definr.rb" 740 bytes
+File: "expert-funnies.rb" 1402 bytes
+File: "expert-irb.rb" 2547 bytes
+File: "expert-minesweeper.rb" 7646 bytes
+File: "expert-othello.rb" 10026 bytes
+File: "expert-pong.rb" 2118 bytes
+File: "expert-tankspank.rb" 10026 bytes
+File: "good-arc.rb" 926 bytes
+File: "good-clock.rb" 1623 bytes
+File: "good-follow.rb" 695 bytes
+File: "good-reminder.rb" 3866 bytes
+File: "good-vjot.rb" 1431 bytes
+File: "simple-accordion.rb" 1857 bytes
+File: "simple-anim-shapes.rb" 377 bytes
+File: "simple-anim-text.rb" 310 bytes
+File: "simple-arc.rb" 536 bytes
+File: "simple-bounce.rb" 539 bytes
+File: "simple-calc.rb" 1494 bytes
+File: "simple-control-sizes.rb" 970 bytes
+File: "simple-curve.rb" 473 bytes
+File: "simple-dialogs.rb" 625 bytes
+File: "simple-downloader.rb" 999 bytes
+File: "simple-draw.rb" 229 bytes
+File: "simple-editor.rb" 644 bytes
+File: "simple-form.rb" 868 bytes
+File: "simple-form.shy" 2186 bytes
+File: "simple-mask.rb" 408 bytes
+File: "simple-menu.rb" 966 bytes
+File: "simple-rubygems.rb" 757 bytes
+File: "simple-slide.rb" 1441 bytes
+File: "simple-sphere.rb" 780 bytes
+File: "simple-timer.rb" 407 bytes
+File: "simple-video.rb" 460 bytes
+File: Descending to: "..\static\"
+File: "Shoes.icns" 34271 bytes
+File: "avatar.png" 1374 bytes
+File: "code_highlighter.js" 6151 bytes
+File: "code_highlighter_ruby.js" 513 bytes
+File: "icon-debug.png" 525 bytes
+File: "icon-error.png" 701 bytes
+File: "icon-info.png" 778 bytes
+File: "icon-warn.png" 666 bytes
+File: "man-app.png" 10775 bytes
+File: "man-builds.png" 21491 bytes
+File: "man-editor-notepad.png" 6580 bytes
+File: "man-editor-osx.png" 11400 bytes
+File: "man-ele-background.png" 4902 bytes
+File: "man-ele-border.png" 6296 bytes
+File: "man-ele-button.png" 5125 bytes
+File: "man-ele-check.png" 6042 bytes
+File: "man-ele-editbox.png" 5308 bytes
+File: "man-ele-editline.png" 4979 bytes
+File: "man-ele-image.png" 81127 bytes
+File: "man-ele-listbox.png" 8100 bytes
+File: "man-ele-progress.png" 4405 bytes
+File: "man-ele-radio.png" 6049 bytes
+File: "man-ele-shape.png" 7225 bytes
+File: "man-ele-textblock.png" 7672 bytes
+File: "man-ele-video.png" 157853 bytes
+File: "man-intro-dmg.png" 23639 bytes
+File: "man-intro-exe.png" 16531 bytes
+File: "man-look-tiger.png" 101078 bytes
+File: "man-look-ubuntu.png" 12692 bytes
+File: "man-look-vista.png" 6629 bytes
+File: "man-run-osx.png" 18150 bytes
+File: "man-run-vista.png" 6724 bytes
+File: "man-run-xp.png" 4348 bytes
+File: "man-shot1.png" 14208 bytes
+File: "manual-en.txt" 114745 bytes
+File: "manual-ja.txt" 124328 bytes
+File: "manual.css" 2770 bytes
+File: "menu-corner1.png" 462 bytes
+File: "menu-corner2.png" 563 bytes
+File: "menu-gray.png" 148 bytes
+File: "menu-left.png" 534 bytes
+File: "menu-right.png" 533 bytes
+File: "menu-top.png" 335 bytes
+File: "shoes-dmg.jpg" 35616 bytes
+File: "shoes-icon-blue.png" 8035 bytes
+File: "shoes-icon.png" 6771 bytes
+File: "shoes-manual-apps.gif" 27695 bytes
+File: "stripe.png" 328 bytes
+File: "tutor-back.png" 132 bytes
+File: Descending to: "..\static\stubs\"
+File: "blank.exe" 81920 bytes
+File: "blank.hfz" 842 bytes
+File: "blank.run" 9044 bytes
+File: "cocoa-install" 64408 bytes
+File: "sh-install" 1090 bytes
+File: Returning to: ".."
+!insertmacro: MakeFileAssoc
+WriteRegStr: HKCR\.shy\=shoes.ShoesProgram
+WriteRegStr: HKCR\shoes.ShoesProgram\=Shoes Shoes Program
+WriteRegStr: HKCR\shoes.ShoesProgram\shell\open\command\="$INSTDIR\shoes.exe" "%1"
+!insertmacro: end of MakeFileAssoc
+WriteUninstaller: "$INSTDIR\Uninstall.exe"
+FileOpen: $INSTDIR\..\shoes.bat as w -> $0
+FileWrite: @ECHO OFF
+->$0
+FileWrite: @"$INSTDIR\shoes.exe" %1 %2 %3 %4 %5 %6 %7 %8 %9
+->$0
+FileClose: $0
+!insertmacro: MUI_STARTMENU_WRITE_BEGIN
+!insertmacro: end of MUI_STARTMENU_WRITE_BEGIN
+CreateDirectory: "$SMPROGRAMS\$STARTMENU_FOLDER"
+CreateShortCut: "$SMPROGRAMS\$STARTMENU_FOLDER\Shoes.lnk"->"$INSTDIR\shoes.exe"  icon:,0, showmode=0x0, hotkey=0x0, comment=
+CreateShortCut: "$SMPROGRAMS\$STARTMENU_FOLDER\Manual.lnk"->"$INSTDIR\shoes.exe" --manual icon:,0, showmode=0x0, hotkey=0x0, comment=
+CreateShortCut: "$SMPROGRAMS\$STARTMENU_FOLDER\Packager.lnk"->"$INSTDIR\shoes.exe" --package icon:,0, showmode=0x0, hotkey=0x0, comment=
+Push: $INSTDIR\..
+Call "AddToPath"
+!insertmacro: MUI_STARTMENU_WRITE_END
+!insertmacro: end of MUI_STARTMENU_WRITE_END
+SectionEnd
+Function: "LaunchApp"
+Exec: "$INSTDIR\shoes.exe" (->)
+FunctionEnd
+LangString: "DESC_SecApp" 1033 "A test section."
+!insertmacro: MUI_FUNCTION_DESCRIPTION_BEGIN
+!insertmacro: end of MUI_FUNCTION_DESCRIPTION_BEGIN
+!insertmacro: MUI_DESCRIPTION_TEXT
+!insertmacro: end of MUI_DESCRIPTION_TEXT
+!insertmacro: MUI_FUNCTION_DESCRIPTION_END
+!insertmacro: end of MUI_FUNCTION_DESCRIPTION_END
+Section: "Uninstall"
+RMDir: /r "$INSTDIR"
+Delete: "$INSTDIR\..\shoes.bat"
+!insertmacro: MUI_STARTMENU_GETFOLDER
+!insertmacro: end of MUI_STARTMENU_GETFOLDER
+Delete: "$SMPROGRAMS\$MUI_TEMP\Shoes.lnk"
+Delete: "$SMPROGRAMS\$MUI_TEMP\Manual.lnk"
+Delete: "$SMPROGRAMS\$MUI_TEMP\Packager.lnk"
+StrCpy $MUI_TEMP "$SMPROGRAMS\$MUI_TEMP" () ()
+ClearErrors
+RMDir: "$MUI_TEMP"
+GetFullPathName: $MUI_TEMP\..->$MUI_TEMP (4649376)
+IfErrors ?startMenuDeleteLoopDone:
+StrCmp "$MUI_TEMP" "$SMPROGRAMS" equal=startMenuDeleteLoopDone, nonequal=startMenuDeleteLoop
+!insertmacro: UnmakeFileAssoc
+DeleteRegKey: HKCU\.shy
+DeleteRegKey: HKCU\shoes.ShoesProgram
+!insertmacro: end of UnmakeFileAssoc
+Push: $INSTDIR\..
+Call "un.RemoveFromPath"
+DeleteRegKey: HKLM\Software\Hackety.org\Shoes
+SectionEnd
+
+Processed 1 file, writing output:
+Adding plug-ins initializing function... Done!
+warning: uninstall function "un.RemoveFromEnvVar" not referenced - zeroing code (66-140) out
+
+warning: install function "AddToEnvVar" not referenced - zeroing code (55-104) out
+
+Processing pages... Done!
+Removing unused resources... Done!
+Generating language tables... Done!
+warning: Variable "MUI_TEXT" not referenced or never set, wasting memory!
+Generating uninstaller... Done!
+
+Output: "C:\build\shoes\dist\nsis\shoes-0.r1251.exe"
+Install: 7 pages (448 bytes), 1 section (1048 bytes), 1382 instructions (38696 bytes), 966 strings (16179 bytes), 1 language table (318 bytes).
+Uninstall: 3 pages (192 bytes), 
+1 section (1048 bytes), 256 instructions (7168 bytes), 140 strings (1948 bytes), 1 language table (254 bytes).
+Datablock optimizer saved 82444 bytes (~0.5%).
+
+Using lzma (compress whole) compression.
+
+EXE header size:               68096 / 34816 bytes
+Install code:                          (57065 bytes)
+Install data:                          (15330473 bytes)
+Uninstall code+data:                   (79788 bytes)
+Compressed data:             4407715 / 15467326 bytes
+CRC (0x57152A16):                  4 / 4 bytes
+
+Total size:                  4475815 / 15502146 bytes (28.8%)
+
+3 warnings:
+  uninstall function "un.RemoveFromEnvVar" not referenced - zeroing code (66-140) out
+
+  install function "AddToEnvVar" not referenced - zeroing code (55-104) out
+
+  Variable "MUI_TEXT" not referenced or never set, wasting memory!
+(in C:/build/shoes)

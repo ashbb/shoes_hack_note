@@ -269,3 +269,106 @@ I see. Then I edited `shoes/http/windownload.c` at line number 93:
 
 **Step 007**
 
+<pre>
+C:\build\shoes>rake
+
+   :
+   :
+
+windownload.c
+LINK : fatal error LNK1181: cannot open input file 'msvcrt-ruby18.lib'
+rake aborted!
+Command failed with status (157): [link /NOLOGO /LIBPATH:C:\WINDDK\3790~1.183...]
+
+</pre>
+
+Oops, need to edit `Rakefile`:
+
+<pre>
+  #MSVC_LIBS = %[msvcrt-ruby18.lib pango-1.0.lib pangocairo-1.0.lib gobject-2.0.lib glib-2.0.lib cairo.lib giflib.lib jpeg.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib shell32.lib comctl32.lib ole32.lib oleaut32.lib advapi32.lib oleacc.lib winhttp.lib]
+  MSVC_LIBS = %[msvcr90-ruby191.lib pango-1.0.lib pangocairo-1.0.lib gobject-2.0.lib glib-2.0.lib cairo.lib giflib.lib jpeg.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib shell32.lib comctl32.lib ole32.lib oleaut32.lib advapi32.lib oleacc.lib winhttp.lib]
+</pre>
+
+
+**Step 008**
+
+Downloaded [NSIS](http://nsis.sourceforge.net/Download) and installed before the following:
+
+<pre>
+C:\build\shoes>set NSIS=C:\Program Files\NSIS
+
+C:\build\shoes>rake package > rake_package_log.txt
+cp platform/msw/shoes.ico shoes/appwin32.ico
+mkdir -p dist/pkg
+rm -f dist/shoes.exe
+mkdir -p dist/ruby
+cp -r deps/ruby/lib/ruby/1.9.1 dist/ruby/lib
+rm -rf dist/ruby/lib/soap
+rm -rf dist/ruby/lib/wsdl
+rm -rf dist/ruby/lib/xsd
+cp -r req/rubygems/rbconfig dist/ruby/lib
+cp -r req/rubygems/rubygems dist/ruby/lib
+cp -r req/rubygems/rubygems.rb dist/ruby/lib
+cp -r req/rubygems/ubygems.rb dist/ruby/lib
+cp -r req/ftsearch/lib/ftsearch dist/ruby/lib
+mkdir -p dist/ruby/gems/1.9.1/specifications
+mkdir -p dist/ruby/gems/1.9.1/gems/hpricot-0.8.1/lib
+cp -r req/hpricot/lib/hpricot dist/ruby/gems/1.9.1/gems/hpricot-0.8.1/lib
+cp -r req/hpricot/lib/hpricot.rb dist/ruby/gems/1.9.1/gems/hpricot-0.8.1/lib
+mkdir -p dist/ruby/gems/1.9.1/gems/hpricot-0.8.1/lib
+cp req/hpricot/gemspec dist/ruby/gems/1.9.1/specifications/hpricot-0.8.1.gemspec
+
+mkdir -p dist/ruby/gems/1.9.1/specifications
+mkdir -p dist/ruby/gems/1.9.1/gems/json-shoes-1.1.3/lib
+cp -r req/json/lib/json dist/ruby/gems/1.9.1/gems/json-shoes-1.1.3/lib
+cp -r req/json/lib/json.rb dist/ruby/gems/1.9.1/gems/json-shoes-1.1.3/lib
+mkdir -p dist/ruby/gems/1.9.1/gems/json-shoes-1.1.3/lib/json/ext
+cp req/json/gemspec dist/ruby/gems/1.9.1/specifications/json-shoes-1.1.3.gemspec
+
+mkdir -p dist/ruby/gems/1.9.1/specifications
+mkdir -p dist/ruby/gems/1.9.1/gems/sqlite3-ruby-1.2.4/lib
+cp -r req/sqlite3/lib/sqlite3 dist/ruby/gems/1.9.1/gems/sqlite3-ruby-1.2.4/lib
+cp -r req/sqlite3/lib/sqlite3.rb dist/ruby/gems/1.9.1/gems/sqlite3-ruby-1.2.4/li
+b
+mkdir -p dist/ruby/gems/1.9.1/gems/sqlite3-ruby-1.2.4/lib
+cp req/sqlite3/gemspec dist/ruby/gems/1.9.1/specifications/sqlite3-ruby-1.2.4.ge
+mspec
+cp -r deps/ruby/bin/libeay32.dll dist/
+cp -r deps/ruby/bin/msvcr90-ruby191.dll dist/
+cp -r deps/ruby/bin/sqlite3.dll dist/
+cp -r deps/cairo/bin/giflib4.dll dist/
+cp -r deps/cairo/bin/jpeg62.dll dist/
+cp -r deps/cairo/bin/libcairo-2.dll dist/
+cp -r deps/cairo/bin/libpng12-0.dll dist/
+cp -r deps/pango/bin/iconv.dll dist/
+cp -r deps/pango/bin/intl.dll dist/
+cp -r deps/pango/bin/libglib-2.0-0.dll dist/
+cp -r deps/pango/bin/libgmodule-2.0-0.dll dist/
+cp -r deps/pango/bin/libgobject-2.0-0.dll dist/
+cp -r deps/pango/bin/libpango-1.0-0.dll dist/
+cp -r deps/pango/bin/libpangocairo-1.0-0.dll dist/
+cp -r deps/pango/bin/libpangowin32-1.0-0.dll dist/
+cp -r deps/pango/bin/zlib1.dll dist/
+cp -r fonts dist/fonts
+cp -r lib dist/lib
+cp -r samples dist/samples
+cp -r static dist/static
+cp README dist/README.txt
+cp CHANGELOG dist/CHANGELOG.txt
+cp COPYING dist/COPYING.txt
+cp platform/msw/shoes.exe.manifest dist/shoes.exe.manifest
+cp dist/zlib1.dll dist/zlib.dll
+mkdir -p pkg
+rm -rf dist/nsis
+cp -r platform/msw dist/nsis
+cp platform/msw/shoes.ico dist/nsis/setup.ico
+mv dist/nsis/shoes-0.r1251.exe pkg
+
+C:\build\shoes>
+</pre>
+
+Done! Here is the log file: [rake_package_log.txt](http://github.com/ashbb/shoes_hack_note/tree/master/log/rake_package_log_090905.txt)
+
+*Note: Looks like to build dist and pkg perfectly, but shoes-0.r1251.exe has never open Shoes app window....* **Need more hacking deeply!** xx-P
+
+
