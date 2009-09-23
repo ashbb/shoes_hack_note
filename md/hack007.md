@@ -41,10 +41,10 @@ Result
 
 My second build [shoes-0.r1252](http://www.rin-shun.com/shoes/index.html) (packed at 2009.9.23) became to load GIF and PNG and JPG files correctly. :-D
 
-![policeman\_1252\_2nd\_build\_snapshot.png](http://4.bp.blogspot.com/_IiD1Gq7uM-I/SroYLbMa2aI/AAAAAAAAANQ/CSTo-gUBxQM/s320/policeman_1252_2nd_build_snapshot.png)
+![policeman\_1252\_2nd\_build\_snapshot.png](http://4.bp.blogspot.com/_IiD1Gq7uM-I/SroYLbMa2aI/AAAAAAAAANQ/CSTo-gUBxQM/s1600/policeman_1252_2nd_build_snapshot.png)
 
 Although from local disk only, so far.
 
-![error\_r1152\_loading\_image\_file\_with\_url.png](http://2.bp.blogspot.com/_IiD1Gq7uM-I/SroYUQ88V1I/AAAAAAAAANY/Y0krEmYwwUM/s1600-h/error_r1152_loading_image_file_with_url.png)
+![error\_r1152\_loading\_image\_file\_with\_url.png](http://2.bp.blogspot.com/_IiD1Gq7uM-I/SroYUQ88V1I/AAAAAAAAANY/Y0krEmYwwUM/s1600/error_r1152_loading_image_file_with_url.png)
 
 I need to hack the loading-image-files-with-URL feature. ;-)
