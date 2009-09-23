@@ -12,8 +12,9 @@ Take Note
 - 004 [Minimum Shoes on Windows](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack004.md)
 - 005 [Define all methods for style](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack005.md)
 - 006 [Building Shoes for Windows](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack006.md)
+- 007 [Building Shoes for Windows: to use both VC6 DLLs and VC9 DLLs](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack007.md)
 
 <br>
 
 ---------------
-2009.9.20 ashbb
+2009.9.23 ashbb
