@@ -13,6 +13,7 @@ Take Note
 - 005 [Define all methods for style](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack005.md)
 - 006 [Building Shoes for Windows](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack006.md)
 - 007 [Building Shoes for Windows: to use both VC6 DLLs and VC9 DLLs](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack007.md)
+- 008 [Building Shoes for Windows: to use sqlite3-ruby with ruby 1.9.1](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack008.md)
 
 <br>
 
