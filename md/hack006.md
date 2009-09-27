@@ -27,6 +27,11 @@ Replace the following in the `Makefile` under `C:\ruby-build`
 - PLATFORM = $(TARGET_OS)_90   -->   PLATFORM = $(TARGET_OS)
 - RT = msvcr90   --> RT = msvcrt
 
+*note: If your pc has the following path in the system environment, it'll not work well. Just delete that.*
+
+- C:\Program Files\Git\bin
+
+
 Then install it as `C:\ruby`
 
 Download [openssl-0.9.8k-win32-bin_dynamic.zip](http://www.limber.jp/?plugin=attach&refer=Software%2FOpenSSL%20for%20Windows&openfile=openssl-0.9.8k-win32-bin_dynamic.zip) from [Software/OpenSSL for Windows - limber.jp](http://www.limber.jp/?Software%2FOpenSSL%20for%20Windows) (Japanese site)    
