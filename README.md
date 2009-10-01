@@ -14,8 +14,9 @@ Take Note
 - 006 [Building Shoes for Windows](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack006.md)
 - 007 [Building Shoes for Windows: to use both VC6 DLLs and VC9 DLLs](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack007.md)
 - 008 [Building Shoes for Windows: to use sqlite3-ruby with ruby 1.9.1](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack008.md)
+- 009 [Building Shoes for Windows: to download and cache an image data via http protocol](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack009.md)
 
 <br>
 
 ---------------
-2009.9.27 ashbb
+2009.10.1 ashbb

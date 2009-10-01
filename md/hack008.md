@@ -57,7 +57,7 @@ Then I got `.shoes/+cache` directory and `.shoes/+data` file created by `sqlite3
 
 **sqlite3-database.png**
 
-![lattice-stereogram.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/sqlite3-database.png)
+![sqlite3-database.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/sqlite3-database.png)
 
 Finally, sqlite3 worked!!
 
