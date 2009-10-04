@@ -1,0 +1,66 @@
+Setting environment for using Microsoft Visual Studio 2008 x86 tools.
+
+C:\Program Files\Microsoft Visual Studio 9.0\VC>cd c:\build\shoes\req\ftsearch\e
+xt\ftsearchrt
+
+C:\build\shoes\req\ftsearch\ext\ftsearchrt>ls -la
+total 8
+drwxr-xr-x    2 asa      Administ        0 Oct  4 15:58 .
+drwxr-xr-x    3 asa      Administ        0 Oct  1 21:51 ..
+-rw-r--r--    1 asa      Administ       51 Oct  1 21:51 extconf.rb
+-rw-r--r--    1 asa      Administ    14564 Oct  4 01:54 ftsearch.c
+
+C:\build\shoes\req\ftsearch\ext\ftsearchrt>ruby -v
+ruby 1.9.1p243 (2009-07-16 revision 24175) [i386-mswin32]
+
+C:\build\shoes\req\ftsearch\ext\ftsearchrt>ruby extconf.rb
+creating Makefile
+
+C:\build\shoes\req\ftsearch\ext\ftsearchrt>nmake
+
+Microsoft(R) Program Maintenance Utility Version 9.00.30729.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+        c:\ruby\bin\ruby -e "puts 'EXPORTS', 'Init_ftsearchrt'"  > ftsearchrt-i3
+86-mswin32.def
+        cl -nologo -I. -Ic:/ruby/include/ruby-1.9.1/i386-mswin32 -Ic:/ruby/inclu
+de/ruby-1.9.1/ruby/backward -Ic:/ruby/include/ruby-1.9.1 -I. -MD -Zi  -O2b2xty-
+ -Zm600 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -Foftsearch.obj -
+c -Tcftsearch.c
+ftsearch.c
+ftsearch.c(46) : warning C4047: '=' : 間接参照のレベルが 'char' と 'char *' で異
+なっています。
+c:\build\shoes\req\ftsearch\ext\ftsearchrt\ftsearch.c(46) : warning C4700: 初期
+化されていないローカル変数 'tmp' が使用されます
+c:\build\shoes\req\ftsearch\ext\ftsearchrt\ftsearch.c(128) : warning C4715: 'sor
+t_bang' : 値を返さないコントロール パスがあります。
+        cl -nologo -LD -Feftsearchrt.so ftsearch.obj msvcrt-ruby191.lib  oldname
+s.lib user32.lib advapi32.lib shell32.lib ws2_32.lib  -link -incremental:no -deb
+ug -opt:ref -opt:icf -incremental:no -debug -opt:ref -opt:icf -dll -libpath:. -l
+ibpath:c:/ruby/lib  -implib:ftsearchrt-i386-mswin32.lib -pdb:ftsearchrt-i386-msw
+in32.pdb -def:ftsearchrt-i386-mswin32.def
+   ライブラリ ftsearchrt-i386-mswin32.lib とオブジェクト ftsearchrt-i386-mswin32
+.exp を作成中
+        mt -nologo -manifest ftsearchrt.so.manifest -outputresource:ftsearchrt.s
+o;2
+
+C:\build\shoes\req\ftsearch\ext\ftsearchrt>ls -la
+total 205
+drwxr-xr-x    2 asa      Administ        0 Oct  4 16:00 .
+drwxr-xr-x    3 asa      Administ        0 Oct  1 21:51 ..
+-rw-r--r--    1 asa      Administ     6292 Oct  4 16:00 Makefile
+-rw-r--r--    1 asa      Administ       51 Oct  1 21:51 extconf.rb
+-rw-r--r--    1 asa      Administ    14564 Oct  4 01:54 ftsearch.c
+-rw-r--r--    1 asa      Administ    50048 Oct  4 16:00 ftsearch.obj
+-rw-r--r--    1 asa      Administ       26 Oct  4 16:00 ftsearchrt-i386-mswin32.
+def
+-rw-r--r--    1 asa      Administ      753 Oct  4 16:00 ftsearchrt-i386-mswin32.
+exp
+-rw-r--r--    1 asa      Administ     1766 Oct  4 16:00 ftsearchrt-i386-mswin32.
+lib
+-rw-r--r--    1 asa      Administ   248832 Oct  4 16:00 ftsearchrt-i386-mswin32.
+pdb
+-rwxr-xr-x    1 asa      Administ    14848 Oct  4 16:00 ftsearchrt.so
+-rw-r--r--    1 asa      Administ    77824 Oct  4 16:00 vc90.pdb
+
+C:\build\shoes\req\ftsearch\ext\ftsearchrt>
