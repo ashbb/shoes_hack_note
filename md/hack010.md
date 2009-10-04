@@ -3,9 +3,9 @@ hack 010: Building Shoes for Windows: to open built-in manual
 
 **Note**: Continued from [hack 009](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack009.md).
 
-**error-undefined-for-date.png**
+**error-open-manual.png**
 
-![error_open_manual.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/error_open_manual.png)
+![error-open-manual.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/error-open-manual.png)
 
 I got the above error with my local Shoes-0.r1259 built by hack 009.
 
@@ -52,7 +52,7 @@ The search function also worked well. Fantastic!
 
 **manual_was_opened.png**
 
-![manual_was_opened.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/manual_was_opened.png)
+![manual-was-opened.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/manual-was-opened.png)
 
 
 Conclusion
