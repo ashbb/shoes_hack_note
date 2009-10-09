@@ -35,10 +35,11 @@ after
 
 ![sample33-good.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/sample33-good.png)
 
+Looks, good!!
+
 note
 ----
 
 The sample 33 is [here](http://shoes-tutorial-note.heroku.com/html/00518_Combination_of_image_objects_show_hide_and_mouse_hover_leave.html).
 
-Looks, good!!
 
