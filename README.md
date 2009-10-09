@@ -16,8 +16,9 @@ Take Note
 - 008 [Building Shoes for Windows: to use sqlite3-ruby with ruby 1.9.1](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack008.md)
 - 009 [Building Shoes for Windows: to download and cache an image data via http protocol](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack009.md)
 - 010 [Building Shoes for Windows: to open built-in manual](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack010.md)
+- 011 [Building Shoes for Windows: to show a button correctly](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack011.md)
 
 <br>
 
 ---------------
-2009.10.4 ashbb
+2009.10.9 ashbb
