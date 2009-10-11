@@ -17,8 +17,9 @@ Take Note
 - 009 [Building Shoes for Windows: to download and cache an image data via http protocol](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack009.md)
 - 010 [Building Shoes for Windows: to open built-in manual](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack010.md)
 - 011 [Building Shoes for Windows: to show a button correctly](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack011.md)
+- 012 [Building Shoes for Windows: to play bloopsaphone](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack012.md)
 
 <br>
 
 ---------------
-2009.10.9 ashbb
+2009.10.11 ashbb
