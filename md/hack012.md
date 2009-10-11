@@ -17,6 +17,8 @@ Bloopsaphone worked very well on my latest Policeman (0.r1263)!!
 
 ![shoes-bloopsaphone-snapshot.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/shoes-bloopsaphone-snapshot.png)
 
+Click the song title. You can listen it with bloopsaphone. :)
+
 Note
 ----
 
