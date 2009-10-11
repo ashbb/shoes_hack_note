@@ -29,7 +29,7 @@ Add ftsearchrt.so under deps
 
 I read Rakefile and did the following:
 
-- creat `ftsearchrt` directory under `deps` directory.
+- creat `ftsearchrt` directory under `deps/ext` directory.
 - move `ftsearchrt.so` to `ftsearchrt`.
 
 rake (rebuild Shoes) and execute

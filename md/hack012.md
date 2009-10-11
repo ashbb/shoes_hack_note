@@ -21,7 +21,7 @@ Note
 ----
 
 - I've not been successful to compile bloopsaphone source code with VC9 so far.
-- A little Shoes app of the above snapshot is [here](http://github.com/ashbb/shoes_hack_note/raw/master/src/shoes_bloopsaphone_play_list.rb).
+- A little Shoes app of the above snapshot is [here](http://github.com/ashbb/shoes_hack_note/blob/master/src/shoes_bloopsaphone_play_list.rb).
 - **1901** was from [here](http://www.aanandprasad.com/1901).
 
 
