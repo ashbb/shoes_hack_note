@@ -19,8 +19,9 @@ Take Note
 - 011 [Building Shoes for Windows: to show a button correctly](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack011.md)
 - 012 [Building Shoes for Windows: to play bloopsaphone](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack012.md)
 - 013 [Building Shoes for Windows: to display fonts beautifully](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack013.md)
+- 014 [Building Shoes for Windows: to save the manual to a directory as HTML](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack014.md)
 
 <br>
 
 ---------------
-2009.10.20 ashbb
+2009.10.27 ashbb
