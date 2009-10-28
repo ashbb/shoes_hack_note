@@ -92,11 +92,18 @@ Then re-ran the Shoes command on the Windows console. But got another error.
 Step 5
 ------
 
-- comment out the line 216 of `shoes.rb` under `C:\build\shoes\dist\lib`
+<strike> - comment out the line 216 of shoes.rb under C:\build\shoes\dist\lib </strike>
+
+After quick reading `fast_xs.c`, I got a solution.
+
+Edit `C:\build\shoes\dist\lib\builder.rb` like this:
+
+- comment out line 2 : `#require 'fast_xs'`   
+- delete all `.fast_xs` at line 50, 97, 102
 
 Then re-ran the Shoes command on the Windows console.
 
-At last, I got all HTML files under `C:\build\tmp` directory. Yay!
+At last, I got all HTML files completely under `C:\build\tmp` directory. Yay!
 
 **error-manual-html-4.png**
 
@@ -106,8 +113,8 @@ At last, I got all HTML files under `C:\build\tmp` directory. Yay!
 Note
 ----
 
-- Now `Colors.html` file has no colors. Because I commented out the code at Step 5.
-Need some more hacking or another solution to create the page completly. :)
+<strike> - Now `Colors.html` file has no colors. Because I commented out the code at Step 5.
+Need some more hacking or another solution to create the page completly. :) </strike>
 
 - These above codes are monkey-paches to only make `--manual-html` option work with Policeman. Not for Hpricot. And I'm not sure this issue occurs only on Windows.
 
