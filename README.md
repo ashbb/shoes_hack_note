@@ -20,8 +20,9 @@ Take Note
 - 012 [Building Shoes for Windows: to play bloopsaphone](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack012.md)
 - 013 [Building Shoes for Windows: to display fonts beautifully](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack013.md)
 - 014 [Building Shoes for Windows: to save the manual to a directory as HTML](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack014.md)
+- 015 [Building Shoes for Windows: rebuilt the deps files with Ruby 1.9.1p376 and add some extensions](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack015.md)
 
 <br>
 
 ---------------
-2009.10.28 ashbb
+2009.12.19 ashbb
