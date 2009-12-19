@@ -124,7 +124,7 @@ Step 7: Build Shoes for Windows
 <pre>
     cp_r "deps/ruby/lib/ruby/site_ruby/1.9.1/openssl", "dist/ruby/lib"
     cp_r "deps/ruby/lib/ruby/site_ruby/1.9.1/openssl.rb", "dist/ruby/lib/"
-<\pre>
+</pre>
 
 - Edit C:\build\shoes\lib\shoes.rb line 116 and 117 for Windows.
 
