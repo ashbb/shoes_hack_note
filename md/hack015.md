@@ -134,7 +134,6 @@ Step 7: Build Shoes for Windows
 </pre>
 
 - Open the WDK (Windows Driver Kits) console window (Windows XP x86 Free Build Environment).
-- C:\build\shoes> set NSIS=C:\Program Files\NSIS
 - C:\build\shoes> rake
 
 
@@ -149,9 +148,28 @@ Step 8: Package Shoes for Windows
   C:\build\shoes\deps\ruby\lib\ruby\gems\1.9.1\specifications\mechanize-0.9.3.gemspec and nokogiri-1.4.1-x86-mswin32.gemspec   
   to C:\build\shoes\dist\ruby\gems\1.9.1\specifications\mechanize-0.9.3.gemspec and nokogiri-1.4.1-x86-mswin32.gemspec
 
+- C:\build\shoes> set NSIS=C:\Program Files\NSIS
 - C:\build\shoes> rake package
 
 Got the Shoes-0.r1279.exe under C:\build\shoes\pkg directory. Done!
+
+- [deps-win32-1.9.1-p376-091219.zip](http://www.rin-shun.com/shoes/deps-win32-1.9.1-p376-091219.zip)
+- [shoes-0.r1279.exe](http://www.rin-shun.com/shoes/shoes-0.r1279.exe)
+
+
+Snapshot
+--------
+
+	# hack005.rb
+	require 'mechanize'
+	
+	Shoes.app do
+	  Agent = WWW::Mechanize.new
+	  page = Agent.get('http://www.rubylearning.org/class/')
+	  para page.body
+	end
+
+![mechanize_on_shoes.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/mechanize_on_shoes.png)
 
 
 References
