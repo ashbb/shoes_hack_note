@@ -57,6 +57,8 @@ Shoes.app :height => 150 do
 end
 </pre>
 
+![EditLine-ListBox-strange.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/EditLine-ListBox-strange.png)
+
 Strange,... the edit\_line area vanished...   
 To be more exact, it only appeared while dropping down list_box items. (couldn't capture, though)
 
