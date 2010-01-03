@@ -23,8 +23,9 @@ Take Note
 - 015 [Building Shoes for Windows: rebuilt the deps files with Ruby 1.9.1p376 and add some extensions](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack015.md)
 - 016 [Building Shoes for Windows: to open .shy file](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack016.md)
 - 017 [Building Shoes for Windows: the edit_line and list_box crisis](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack017.md)
+- 018 [Building Shoes for Windows: to take a snapshot](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack018.md)
 
 <br>
 
 ---------------
-2009.12.31 ashbb
+2010.1.3 ashbb
