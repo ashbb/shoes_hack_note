@@ -18,9 +18,10 @@ end
 
 You can also use `:ps` and `:svg` format. Although, there are two restrictions so far.
 
-Restrictions:
-- can't output any elements inside of stack() or flow()
-- can't use with block
+**Restrictions:**
+
+- can't output any elements inside of stack() or flow()   
+- can't use with block   
 
 
 Snapshot
