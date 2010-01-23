@@ -7,6 +7,10 @@ About a year ago, I've attempted to follow this guide. But I didn't understand a
 
 But now I realized **it works!** :-D
 
+**The following is the latest guide for Building Shoes with MinGW.**
+
+The previous note is [here](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack019_old.md).
+
 
 Install Ruby 1.9 [i386-mingw32]
 -------------------------------
@@ -25,8 +29,7 @@ Creat c:\shoes_dev directory
 
 - open Windows' console window
 - cd c:\
-- git clone git://github.com/ender672/rubyinstaller.git
-- mv rubyinstaller shoes_dev
+- git clone git://github.com/ashbb/rubyinstaller.git shoes_dev
 
 
 Creat c:\shoes_dev\sandbox directory
@@ -43,28 +46,51 @@ Build Shoes
 -----------
 
 - cd c:\shoes_dev\sandbox
-- git clone git://github.com/ender672/shoes.git
-
-- edit a little    
-  c:\shoes_dev\sandbox\shoes\lib\shoes.rb line 117-119    
-  add `Shoes::` before `Para`, `Link` and `LinkHover`   
-
+- git clone git://github.com/ashbb/shoes.git
 - cd c:\shoes_dev
 - rake interpreter:shoes:compile
 
 That's it! The c:\shoes_dev\sandbox\shoes\dist\shoes-bin.exe is there. :-D
 
 
+Package Shoes
+-------------
+
+- cd c:\shoes_dev\sandbox\shoes\dist
+- mv shoes-bin.exe shoes.exe
+- cd c:\shoes_dev\sandbox\shoes
+- set NSIS=C:\Program Files\NSIS  (See also [this](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack006.md))
+- rake installer
+
+That's it! The C:\shoes_dev\sandbox\shoes\pkg\shoes-0.r1367.exe is there.   
+You can install Shoes just one click. ;-)
+
+
 Snapshot
 --------
 
-![building-shoes-with-mingw.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/building-shoes-with-mingw.png)
+![building-shoes-with-mingw.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/building-shoes-with-mingw-1.png)
 
+<pre>
+Shoes.app :title => 'Building Shoes with MinGW', 
+  :width => 330, :height => 200 do
+  
+  background hotpink..orange, :angle => 90
+  style Shoes::Caption, :stroke => white
+  stack do
+    caption strong("RELEASE_NAME: #{Shoes::RELEASE_NAME}")
+    caption strong("RELEASE_ID: #{Shoes::RELEASE_ID}")
+    caption strong("REVISION: #{Shoes::REVISION}")
+    caption strong("RUBY_PLATFORM: #{Shoes::RUBY_PLATFORM}")
+    caption strong("RUBY_VERSION: #{Shoes::RUBY_VERSION}")
+  end
+end
+</pre>
 
 Note
 ----
 - add Shoes icon
 - launch Shoes without Windows' console
-- merge the latest Shoes code
-- update dependencies
+- merge the latest Shoes code ... done!
+- update dependencies ... done! (Ruby 1.9.1p378 only, so far)
 
