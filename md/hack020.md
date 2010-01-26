@@ -19,9 +19,11 @@ Build libjpeg
 - Extract that into C:\tmp
 - edit C:\tmp\jpeg-8b\jmorecfg.h line 236
 
+<pre>
    #ifndef HAVE_BOOLEAN
    typedef unsigned char boolean;   /* typedef int boolean; */
    #endif
+</pre>
 
 - Open msysGit window
 - cd /c/tmp/jpeg-8b

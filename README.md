@@ -25,7 +25,7 @@ Take Note
 - 017 [Building Shoes for Windows: the edit_line and list_box crisis](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack017.md)
 - 018 [Building Shoes for Windows: to take a snapshot](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack018.md)
 - 019 [Building Shoes for Windows: Building Shoes with MinGW](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack019.md)
-- 020 [Building Shoes for Windows: to display .jpg file](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack020.md)
+- 020 [Building Shoes for Windows: to display Jpeg file](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack020.md)
 
 <br>
 
