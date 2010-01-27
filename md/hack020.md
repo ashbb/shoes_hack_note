@@ -31,9 +31,6 @@ Build libjpeg
 - make
 - make install
 
-- Rename libjpeg-8.dll to libjpeg.dll
-- Replace `libjpeg-8.dll` to `libjpeg.dll` in libjpeg.la and libjpeg.lai
-
 Now packaged them as `libjpeg_v8_bin_lib_include.zip` and uploaded [here](http://www.rin-shun.com/shoes/MinGW/downloads/).
 
 
@@ -45,8 +42,4 @@ Snapshot
 Display lots of Jpeg files on the GangsClock. :)
 
 
-NOTE
-----
-
-If you have this error: `not found libjpeg-8.dll` when you launch Shoes, please rename dist/libjpeg.dll to dist/libjpeg-8.dll by hand.
 
