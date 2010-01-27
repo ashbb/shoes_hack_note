@@ -56,13 +56,11 @@ That's it! The c:\shoes_dev\sandbox\shoes\dist\shoes-bin.exe is there. :-D
 Package Shoes
 -------------
 
-- cd c:\shoes_dev\sandbox\shoes\dist
-- mv shoes-bin.exe shoes.exe
 - cd c:\shoes_dev\sandbox\shoes
 - set NSIS=C:\Program Files\NSIS  (See also [this](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack006.md))
 - rake installer
 
-That's it! The C:\shoes_dev\sandbox\shoes\pkg\shoes-0.r1367.exe is there.   
+That's it! The C:\shoes_dev\sandbox\shoes\pkg\shoes-0.r1371.exe is there.   
 You can install Shoes just one click. ;-)
 
 
@@ -89,8 +87,8 @@ end
 
 Note
 ----
-- add Shoes icon
+- add Shoes icon ... done!
 - launch Shoes without Windows' console
 - merge the latest Shoes code ... done!
-- update dependencies ... done! (Ruby 1.9.1p378 only, so far)
+- update dependencies ... done! (Ruby 1.9.1p378 and libjpeg v8, so far)
 
