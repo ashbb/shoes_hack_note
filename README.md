@@ -26,8 +26,9 @@ Take Note
 - 018 [Building Shoes for Windows: to take a snapshot](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack018.md)
 - 019 [Building Shoes for Windows: Building Shoes with MinGW](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack019.md)
 - 020 [Building Shoes for Windows: to display Jpeg file](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack020.md)
+- 021 [Checking Shoes Samples: expert-irb.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack021.md)
 
 <br>
 
 ---------------
-2010.1.27 ashbb
+2010.3.11 ashbb
