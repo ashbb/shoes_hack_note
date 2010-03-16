@@ -22,7 +22,7 @@ Then ran expert-funnies.rb with Policeman. It works well with no error.
 But without clearing `.shoes/+cache` and `.shoes/+data`, 
 ran expert-funnies.rb with Policeman, then got the following error:
 
-![error-expert-funnies-1.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/error-expert-funnies-1.png)
+![error-expert-funnies-2.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/error-expert-funnies-2.png)
 
 
 Solution
