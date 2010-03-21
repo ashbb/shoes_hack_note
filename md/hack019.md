@@ -41,6 +41,13 @@ Creat c:\shoes_dev\sandbox directory
 - cd c:\shoes_dev
 - rake
 
+Creat c:\shoes_dev\sandbox\deps_cairo_1.8.10 directory
+------------------------------------------------------
+
+- cd c:\shoes_dev\sandbox
+- mkdir deps_cairo_1.8.10
+- download [deps_cairo_1.8.10.zip](http://www.rin-shun.com/shoes/MinGW/downloads/) file and unzip into c:\shoes_dev\sandbox\deps_cairo_1.8.10
+
 
 Build Shoes
 -----------
