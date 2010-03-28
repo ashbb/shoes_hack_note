@@ -65,3 +65,8 @@ snapshot
 
 ![snapshot-expert-definr.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/snapshot-expert-definr.png)
 
+
+Note
+----
+
+Refer to a tiny note: [recognize the enter-key pressed in the edit_line area](http://shoes-tutorial-note.heroku.com/html/00544_recognize_the_enter-key_pressed_in_the_edit_line_area.html).
