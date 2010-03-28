@@ -29,6 +29,7 @@ Take Note
 - 021 [Checking Shoes Samples: expert-irb.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack021.md)
 - 022 [Checking Shoes Samples: expert-funnies.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack022.md)
 - 023 [Checking Shoes Samples: expert-definr.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack023.md)
+- 024 [Checking Shoes Samples: simple-control-sizes.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack024.md)
 
 <br>
 
