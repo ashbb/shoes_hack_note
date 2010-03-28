@@ -28,8 +28,9 @@ Take Note
 - 020 [Building Shoes for Windows: to display Jpeg file](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack020.md)
 - 021 [Checking Shoes Samples: expert-irb.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack021.md)
 - 022 [Checking Shoes Samples: expert-funnies.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack022.md)
+- 023 [Checking Shoes Samples: expert-definr.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack023.md)
 
 <br>
 
 ---------------
-2010.3.22 ashbb
+2010.3.28 ashbb
