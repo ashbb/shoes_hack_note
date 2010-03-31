@@ -13,14 +13,18 @@ Advance Preparation
 
 - Confirm Shoes version
 
-	C:\tmp> shoes -v
+<pre>
+C:\tmp> shoes -v
+</pre>
 
 ![shoes-v.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/shoes-v.png)
 
 - Install gems into Shoes working directory (.shoes). For example:
 
-	C:\tmp> shoes -g install bluecloth --version '=2.0.6' --no-rdoc --no-ri
-	C:\tmp> shoes -g install metaid
+<pre>
+C:\tmp> shoes -g install bluecloth --version '=2.0.6' --no-rdoc --no-ri
+C:\tmp> shoes -g install metaid
+</pre>
 
 ![shoes-g.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/shoes-g.png)
 
@@ -41,8 +45,9 @@ Note
 - Why `Total Gems: 6` ?   
   Because you installed `bluecloth` and `retaid`, Policeman has also included `hpricot`, `json` and `sqlite3`. You can find them under this directory:
 
-	C:\Program Files\Common Files\Shoes\0.r1405\ruby\gems\1.9.1\gems
-
+<pre>
+C:\Program Files\Common Files\Shoes\0.r1405\ruby\gems\1.9.1\gems
+</pre>
 
 
 
