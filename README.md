@@ -30,8 +30,9 @@ Take Note
 - 022 [Checking Shoes Samples: expert-funnies.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack022.md)
 - 023 [Checking Shoes Samples: expert-definr.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack023.md)
 - 024 [Checking Shoes Samples: simple-control-sizes.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack024.md)
+- 025 [Checking Shoes Samples: simple-rubygems.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack025.md)
 
 <br>
 
 ---------------
-2010.3.28 ashbb
+2010.4.1 ashbb
