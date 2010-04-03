@@ -57,7 +57,7 @@ Build Shoes
 - cd c:\shoes_dev
 - rake interpreter:shoes:compile
 
-That's it! The c:\shoes_dev\sandbox\shoes\dist\shoes-bin.exe is there. :-D
+That's it! The c:\shoes_dev\sandbox\shoes\dist\shoes.exe is there. :-D
 
 
 Package Shoes

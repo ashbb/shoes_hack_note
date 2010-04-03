@@ -50,6 +50,9 @@ C:\Program Files\Common Files\Shoes\0.r1405\ruby\gems\1.9.1\gems
 </pre>
 
 
+Finally
+-------
 
+Worked without the above advance preparation! The commit is [this](http://github.com/ashbb/shoes/commit/bd749be8d5c553dd56600f46945c80f2786a5f7f).
 
-
+![snapshot-shoes-setup.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/snapshot-shoes-setup.png)
