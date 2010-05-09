@@ -56,6 +56,22 @@ That's it! You can find `dist/shoes`. Just do the following.
 Snapshot 1
 ----------
 
+Opening window.
+
+![Screenshot-Shoes-opening.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/Screenshot-Shoes-opening.png)
+
+
+Snapshot 2
+----------
+
+Manual window.
+
+![Screenshot-manual.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/Screenshot-manual.png)
+
+
+Snapshot 3
+----------
+
 
 	    Shoes.app do
 	      background hotpink..orange, angle: 90
@@ -73,7 +89,7 @@ Snapshot 1
 ![Screenshot-Shoes-for-Linux-1.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/Screenshot-Shoes-for-Linux-1.png)
 
 
-Snapshot 2
+Snapshot 4
 ----------
 
 The `shoes_app_launcher.shy` can be launched!! This is a shy file created by Policeman for Windows.
