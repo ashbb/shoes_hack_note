@@ -53,6 +53,20 @@ That's it! You can find `dist/shoes`. Just do the following.
 - ./shoes   
 
 
+Package Shoes
+-------------
+
+- wget http://megastep.org/makeself/makeself.run
+- chmod 755 makeself.run
+- ./makeself.run
+- sudo ln -s /home/ashbb/work/makeself-2.1.5/makeself.sh /usr/local/bin/makeself
+- sudo ln -s /home/ashbb/work/makeself-2.1.5/makeself-header.sh /usr/local/bin/makeself-header.sh
+- cd shoes
+- rake installer
+
+You can find `pkg/shoes-0.r1416.run`.
+
+
 Snapshot 1
 ----------
 
