@@ -108,5 +108,18 @@ samples/simple-control-sizes.rb without abort. But this is not complete
 solution, still doesn't work repainting list_box well. Further detailed 
 investigation is required.
 
+<pre>
+Shoes.app :height => 150 do
+  4.times do |i|
+    edit_line
+    list_box :items=> %w[a b c d e f]
+    button 'ok'
+  end
+end
+</pre>
+
 ![alternative-ListBox-snapshot.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/alternative-ListBox-snapshot.png)
+
+This is [the commit](http://github.com/ashbb/shoes/commit/b977d277b2afdd781ec024446cf8f622d784cef2
+).
 
