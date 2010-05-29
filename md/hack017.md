@@ -70,7 +70,7 @@ Then I know this is a VC9 problem and there is no good solutions.
 
 <br>
 
-Work Around
+Workaround
 -----------
 
 I wrote another `list_box` in Ruby. The code is [override.rb](http://github.com/ashbb/shoes/blob/master/lib/shoes/override.rb). Look at [this commit](http://github.com/ashbb/shoes/commit/6373c6d2491244cc9733f5db19fbc2da25dc63c4).
@@ -97,3 +97,16 @@ Looks not bad. Although there are two restrictions:
 
 - can't use tabbing
 - always need to add both :left and :top options explicitly
+
+<br>
+
+Another Workaround
+------------------
+
+Decided to add another workaround. Got a good-looking and could launch 
+samples/simple-control-sizes.rb without abort. But this is not complete 
+solution, still doesn't work repainting list_box well. Further detailed 
+investigation is required.
+
+![alternative-ListBox-snapshot.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/alternative-ListBox-snapshot.png)
+
