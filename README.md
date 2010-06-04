@@ -32,8 +32,9 @@ Take Note
 - 024 [Checking Shoes Samples: simple-control-sizes.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack024.md)
 - 025 [Checking Shoes Samples: simple-rubygems.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack025.md)
 - 026 [Building Shoes for Linux: Building Shoes on VirtualBox](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack026.md)
+- 027 [Shoes Gem](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack027.md)
 
 <br>
 
 ---------------
-2010.5.29 ashbb
+2010.6.4 ashbb
