@@ -33,8 +33,9 @@ Take Note
 - 025 [Checking Shoes Samples: simple-rubygems.rb](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack025.md)
 - 026 [Building Shoes for Linux: Building Shoes on VirtualBox](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack026.md)
 - 027 [Shoes Gem](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack027.md)
+- 028 [Building Hackety Hack for Windows](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack028.md)
 
 <br>
 
 ---------------
-2010.6.4 ashbb
+2010.6.19 ashbb
