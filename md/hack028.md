@@ -46,8 +46,10 @@ Modify the following two files:
 
 - c:\shoes_dev\sandbox\shoes\dist\app\h-ety-h.rb
 
-	#Shoes.setup do gem 'ruby-debug' end
-	#require 'ruby-debug'
+	
+	  #Shoes.setup do gem 'ruby-debug' end
+	  #require 'ruby-debug'
+	
 
 
 Package Hackety Hack for Windows
