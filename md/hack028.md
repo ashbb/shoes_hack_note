@@ -35,13 +35,11 @@ Modify the following two files:
 - c:\shoes_dev\sandbox\shoes\dist\lib\shoes.rb
 
 	  def self.args!
-	=begin
-	    if RUBY_PLATFORM !~ /darwin/ and ARGV.empty?
-	      Shoes.splash
-	    end
-	    OPTS.parse! ARGV
-	    ARGV[0] or true
-	=end
+	    #if RUBY_PLATFORM !~ /darwin/ and ARGV.empty?
+	    #  Shoes.splash
+	    #end
+	    #OPTS.parse! ARGV
+	    #ARGV[0] or true
 	    ARGV[0] = "app/h-ety-h.rb"
 	  end
 
