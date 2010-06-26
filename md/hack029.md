@@ -33,7 +33,7 @@ Usage
 
 Look at this sample snippet. Very easy!
 
-	# chipmunk_physics_on_shoes.rb
+	# simple-chipmunk.rb
 	require 'shoes/chipmunk'
 	
 	Shoes.app title: 'A Tiny Chipmunk Physics Demo' do
@@ -67,11 +67,11 @@ A tiny online demo is [here](http://www.rin-shun.com/shoes/chipmunk.swf.html).
 Snapshot
 --------
 
-![chipmunk-snapshot.png(http://github.com/ashbb/shoes_hack_note/raw/master/img/chipmunk-snapshot.png)
+![chipmunk-snapshot.png](http://github.com/ashbb/shoes_hack_note/raw/master/img/chipmunk-snapshot.png)
 
 
 Note
 ----
 
-If you want to use chipmunk without helper methods I wrote, you can include 'chipmunk' instead of 'shoes/chipmunk'.
+If you want to use chipmunk without helper methods I wrote, you can require `chipmunk` instead of `shoes/chipmunk`.
 

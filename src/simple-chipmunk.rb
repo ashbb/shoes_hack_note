@@ -1,4 +1,4 @@
-# chipmunk_physics_on_shoes.rb
+# simple-chipmunk.rb
 require 'shoes/chipmunk'
 
 Shoes.app title: 'A Tiny Chipmunk Physics Demo' do
