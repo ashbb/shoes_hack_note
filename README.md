@@ -34,8 +34,9 @@ Take Note
 - 026 [Building Shoes for Linux: Building Shoes on VirtualBox](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack026.md)
 - 027 [Shoes Gem](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack027.md)
 - 028 [Building Hackety Hack for Windows](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack028.md)
+- 029 [Chipmunk Physics on Shoes](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack029.md)
 
 <br>
 
 ---------------
-2010.6.19 ashbb
+2010.6.26 ashbb
