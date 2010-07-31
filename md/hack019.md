@@ -41,6 +41,7 @@ Creat c:\shoes_dev\sandbox directory
 - cd c:\shoes_dev
 - rake
 
+
 Creat c:\shoes_dev\sandbox\deps_cairo_1.8.10 directory
 ------------------------------------------------------
 
@@ -49,13 +50,35 @@ Creat c:\shoes_dev\sandbox\deps_cairo_1.8.10 directory
 - download [deps_cairo_1.8.10.zip](http://www.rin-shun.com/shoes/MinGW/deps/) file and unzip that into c:\shoes_dev\sandbox\deps_cairo_1.8.10
 
 
-Build Shoes
------------
+Creat c:\shoes_dev\sandbox\deps_vlc_0.8 directory
+------------------------------------------------------
+
+- cd c:\shoes_dev\sandbox
+- mkdir deps_vlc_0.8
+- download [deps_vlc_0.8.zip](http://www.rin-shun.com/shoes/MinGW/deps/) file and unzip that into c:\shoes_dev\sandbox\deps_vlc_0.8
+
+Note: If you have [deps-win32-1.6.4-1.20.5_vlc.zip](http://github.com/downloads/shoes/shoes/deps-win32-1.6.4-1.20.5_vlc.zip). The vlc subdirectory is the same as deps_vlc_0.8.
+
+
+Build Shoes with Video support
+------------------------------
 
 - cd c:\shoes_dev\sandbox
 - git clone git://github.com/ashbb/shoes.git
 - cd c:\shoes_dev
-- rake interpreter:shoes:compile
+- rake interpreter:shoes:compile VIDEO=1 (for Windows 7 and Vista)
+- rake interpreter:shoes:compile VIDEO=1 NOLAYERED=1 (for Windows XP)
+
+That's it! The c:\shoes_dev\sandbox\shoes\dist\shoes.exe is there. :-D
+
+
+Build Shoes without Video support
+---------------------------------
+
+- cd c:\shoes_dev\sandbox
+- git clone git://github.com/ashbb/shoes.git
+- cd c:\shoes_dev
+- rake interpreter:shoes:compile (for Windows 7, Vista and XP)
 
 That's it! The c:\shoes_dev\sandbox\shoes\dist\shoes.exe is there. :-D
 
