@@ -66,10 +66,11 @@ Build Shoes with Video support
 - cd c:\shoes_dev\sandbox
 - git clone git://github.com/ashbb/shoes.git
 - cd c:\shoes_dev
-- rake interpreter:shoes:compile VIDEO=1 (for Windows 7 and Vista)
-- rake interpreter:shoes:compile VIDEO=1 NOLAYERED=1 (for Windows XP)
+- rake interpreter:shoes:compile VIDEO=1
 
 That's it! The c:\shoes_dev\sandbox\shoes\dist\shoes.exe is there. :-D
+
+**NOTE**: When you use Policeman with Video support on Windows XP, launch with `--nolayered` option like this: `shoes --nolayered`
 
 
 Build Shoes without Video support
@@ -78,7 +79,7 @@ Build Shoes without Video support
 - cd c:\shoes_dev\sandbox
 - git clone git://github.com/ashbb/shoes.git
 - cd c:\shoes_dev
-- rake interpreter:shoes:compile (for Windows 7, Vista and XP)
+- rake interpreter:shoes:compile
 
 That's it! The c:\shoes_dev\sandbox\shoes\dist\shoes.exe is there. :-D
 
@@ -90,7 +91,7 @@ Package Shoes
 - set NSIS=C:\Program Files\NSIS  (See also [this](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack006.md))
 - rake installer
 
-That's it! The C:\shoes_dev\sandbox\shoes\pkg\shoes-0.r1371.exe is there.   
+That's it! The C:\shoes_dev\sandbox\shoes\pkg\shoes-0.r1488.exe is there.   
 You can install Shoes just one click. ;-)
 
 
@@ -121,4 +122,3 @@ Note
 - launch Shoes without Windows' console
 - merge the latest Shoes code ... done!
 - update dependencies ... done! (Ruby 1.9.1p378 and libjpeg v8, so far)
-
