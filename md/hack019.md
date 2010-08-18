@@ -15,13 +15,13 @@ The previous note is [here](http://github.com/ashbb/shoes_hack_note/tree/master/
 Install Ruby 1.9 [i386-mingw32]
 -------------------------------
 
-- download and execute [rubyinstaller-1.9.1-p243-rc1.exe](http://rubyforge.org/frs/download.php/66872/rubyinstaller-1.9.1-p243-rc1.exe)
+- download and execute [rubyinstaller-1.9.1](http://rubyinstaller.org/downloads/) (Now [p430](http://rubyforge.org/frs/download.php/72075/rubyinstaller-1.9.1-p430.exe) is the latest)
 
 
 Install MSysGit
 ---------------
 
-- download and execute [msysGit-netinstall-1.6.4-preview20090730.exe](http://msysgit.googlecode.com/files/msysGit-netinstall-1.6.4-preview20090730.exe)
+- download and execute [msysGit](http://code.google.com/p/msysgit/downloads/list) ([Git-1.7.1-preview20100612.exe](http://code.google.com/p/msysgit/downloads/detail?name=Git-1.7.1-preview20100612.exe&can=2&q=) or [msysGit-netinstall-1.7.1-preview20100612.exe ](http://code.google.com/p/msysgit/downloads/detail?name=msysGit-netinstall-1.7.1-preview20100612.exe&can=2&q=))
 
 
 Creat c:\shoes_dev directory
@@ -41,6 +41,7 @@ Creat c:\shoes_dev\sandbox directory
 - cd c:\shoes_dev
 - rake
 
+Note: Updated the above [dependencies list](http://www.rin-shun.com/shoes/MinGW/downloads/). Now you can build Shoes on both Windows XP and 7!
 
 Creat c:\shoes_dev\sandbox\deps_cairo_1.8.10 directory
 ------------------------------------------------------
