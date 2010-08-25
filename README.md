@@ -35,8 +35,9 @@ Take Note
 - 027 [Shoes Gem](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack027.md)
 - 028 [Building Hackety Hack for Windows](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack028.md)
 - 029 [Chipmunk Physics on Shoes](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack029.md)
+- 030 [Another Shoes](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack030.md)
 
 <br>
 
 ---------------
-2010.8.18 ashbb
+2010.8.25 ashbb
