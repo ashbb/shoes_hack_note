@@ -57,7 +57,6 @@ Another Shoes
 	    drawing_area = Gtk::DrawingArea.new
 	    drawing_area.signal_connect "expose-event" do |widget, event|
 	      @context = widget.window.create_cairo_context
-	      x, y, w, h = widget.allocation.to_a
 	      instance_eval &blk
 	    end
 	    
