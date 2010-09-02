@@ -36,8 +36,9 @@ Take Note
 - 028 [Building Hackety Hack for Windows](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack028.md)
 - 029 [Chipmunk Physics on Shoes](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack029.md)
 - 030 [Another Shoes](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack030.md)
+- 031 [Compile ruby-gtk2 package and rcairo with Ruby 1.9.2](http://github.com/ashbb/shoes_hack_note/tree/master/md/hack031.md)
 
 <br>
 
 ---------------
-2010.8.25 ashbb
+2010.9.2 ashbb
