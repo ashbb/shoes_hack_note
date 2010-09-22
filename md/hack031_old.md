@@ -3,8 +3,6 @@ hack 031: Compile ruby-gtk2 package and rcairo with Ruby 1.9.2 (i386-mingw32)
 
 I found [this post](http://www.ruby-forum.com/topic/192793). So, I just tried with Ruby 1.9.2. :)
 
-*Note*:  old page (using rcairo-1.8.5) is [here](http://github.com/ashbb/shoes_hack_note/blob/master/md/hack031_old.md).
-
 Preparation
 -----------
 
@@ -26,7 +24,7 @@ Download and install:
 Download and extract:
 
 - [ruby-gtk2-0.19.4.tar.gz](http://sourceforge.net/projects/ruby-gnome2/files/ruby-gnome2/ruby-gnome2-0.19.4/ruby-gtk2-0.19.4.tar.gz/download) to `c:\tmp\ruby-gtk`
-- [rcairo-1.10.0.tar.gz](http://cairographics.org/releases/rcairo-1.10.0.tar.gz) to `c:\tmp\rcairo-1.10.0`
+- [rcairo-1.8.5.tar.gz](http://cairographics.org/releases/rcairo-1.8.5.tar.gz) to `c:\tmp\rcairo-1.8.5`
 
 Okay, now is the time to compile the following!
 
@@ -35,25 +33,27 @@ glib
 - cd c:\tmp\ruby-gtk\glib
 - ruby -rdevkit extconf.rb 
 - Edit src\Makefile dldflags : --enable-auto-import,--out-implib=libruby-glib2.a $(DEFFILE)
+- Add CPPFLAGS : -DHAVE_RB_THREAD_BLOCKING_REGION -DHAVE_RUBY_NATIVE_THREAD_P
 - Add INCFLAGS : -IC:/gtk/include
 - make
 - make install
 
 rcairo
 ------
-- cd c:\tmp\rcairo-1.10.0
-- Replace c:\tmp\rcairo-1.10.0\ext\cairo\extconf.rb to c:\tmp\rcairo-1.8.5\ext\cairo\extconf.rb  (*Note*: use extconf.rb of rcairo-1.8.5)
+- cd c:\tmp\rcairo-1.8.5
 - ruby -rdevkit extconf.rb --with-pkg-config=c:\gtk\bin\pkg-config.exe
 - Edit ext\cairo\Makefile dldflags : --enable-auto-import,--out-implib=libruby-cairo.a $(DEFFILE)
 - Add INCFLAGS : -IC:/gtk/include/cairo
 - Add LIBPATH  : -LC:/gtk/lib
-- Delete ext\cairo\cairo.def : rb_cairo_device_from_ruby_object  rb_cairo_device_to_ruby_object  rb_cairo_pdf_version_from_ruby_object  rb_cairo_region_from_ruby_object  rb_cairo_region_to_ruby_object
+- Replace devel/target/e1cabcfbab6c7ee30ed3ffc781169bba to gtk
+- Replace devel/target/9e3dd352b1f391f5997da8a13802e83e to gtk
+- Add CPPFLAGS : -DHAVE_RB_ERRINFO
 - make
 - make install
 
 atk
 ---
-- set CAIRO_PATH=C:/tmp/rcairo-1.10.0/ext/cairo
+- set CAIRO_PATH=C:/tmp/rcairo-1.8.5/ext/cairo
 - cd c:\tmp\ruby-gtk\atk
 - ruby -rdevkit extconf.rb
 - Edit src\Makefile dldflags : --enable-auto-import,--out-implib=libruby-atk.a $(DEFFILE)
@@ -65,8 +65,8 @@ pango
 - cd c:\tmp\ruby-gtk\pango
 - ruby -rdevkit extconf.rb
 - Edit src\Makefile dldflags : --enable-auto-import,--out-implib=libruby-pango.a $(DEFFILE)
-- Add LIBPATH  : -LC:/tmp/rcairo-1.10.0/ext/cairo
-- Replace tmp/rcairo-1.10.0/ext/cairo/src to tmp/rcairo-1.10.0/ext/cairo
+- Add LIBPATH  : -LC:/tmp/rcairo-1.8.5/ext/cairo
+- Replace tmp/rcairo-1.8.5/ext/cairo/src to tmp/rcairo-1.8.5/ext/cairo
 - make
 - make install
 
@@ -75,8 +75,8 @@ gtk
 - cd c:\tmp\ruby-gtk\gtk
 - ruby -rdevkit extconf.rb
 - Edit src\Makefile dldflags : --enable-auto-import,--out-implib=libruby-gtk.a $(DEFFILE)
-- Add LIBPATH  : -LC:/tmp/rcairo-1.10.0/ext/cairo
-- Replace tmp/rcairo-1.10.0/ext/cairo/src to tmp/rcairo-1.10.0/ext/cairo
+- Add LIBPATH  : -LC:/tmp/rcairo-1.8.5/ext/cairo
+- Replace tmp/rcairo-1.8.5/ext/cairo/src to tmp/rcairo-1.8.5/ext/cairo
 - Delete LIBS : -lruby-gtk2
 - Delete src\gtk2.def : rbgtk_clipboard_get_type  rbgtk_get_clipboard rbgtk_get_tree_row_reference  rbgtk_make_clipboard  rbgtk_tree_row_reference_get_type 
 - make
@@ -87,8 +87,8 @@ gdkpixbuf
 - cd c:\tmp\ruby-gtk\gdkpixbuf
 - ruby -rdevkit extconf.rb
 - Edit Makefile dldflags : --enable-auto-import,--out-implib=libruby-gdk_pixbuf2.a $(DEFFILE)
-- Add LIBPATH  : -LC:/tmp/rcairo-1.10.0/ext/cairo
-- Replace tmp/rcairo-1.10.0/ext/cairo/src to tmp/rcairo-1.10.0/ext/cairo
+- Add LIBPATH  : -LC:/tmp/rcairo-1.8.5/ext/cairo
+- Replace tmp/rcairo-1.8.5/ext/cairo/src to tmp/rcairo-1.8.5/ext/cairo
 - make
 - make install
 
